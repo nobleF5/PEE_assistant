@@ -15,18 +15,12 @@ String state= request.getParameter("code");
 		$(function(){
 			$("a").click(function(){
 				alert(<%=basePath%><%=url%>+"?code="+<%=code%>+"&state="+<%=state%>);
+				console.log(<%=basePath%><%=url%>+"?code="+<%=code%>+"&state="+<%=state%>);
 			});
 		});
 	</script>
   </head>
   <body>
   <a href="/PEE_assistant/userOper">获取用户信息</a>
-  <!--  
-	path:<%=path%>
-	basePath:<%=basePath%>
-  	uri:<%=url%>
-	code:<%=code%>
-	state:<%=state%>
-	-->
   </body>
 </html>
