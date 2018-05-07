@@ -1,26 +1,16 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<% 
-String path = request.getContextPath(); 
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/"; 
-String code= request.getParameter("code");//用request得到 
-String url = request.getRequestURI();
-String state= request.getParameter("code");
-%> 
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-  <head>
-    <title></title>
-    <script src="${pageContext.request.contextPath }/js/jquery.min.js"></script>
-	<script src="${pageContext.request.contextPath }/js/jquery-3.2.1.js"></script>
-	<script type="text/javascript">
-		$(function(){
-			$("a").click(function(){
-				alert(<%=basePath%><%=url%>+"?code="+<%=code%>+"&state="+<%=state%>);
-				console.log(<%=basePath%><%=url%>+"?code="+<%=code%>+"&state="+<%=state%>);
-			});
-		});
-	</script>
-  </head>
-  <body>
-  <a href="/PEE_assistant/userOper">获取用户信息</a>
-  </body>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>考研软件专业信息查询</title>
+	
+</head>
+<body>
+	<a href="/PEE_assistant/queryeedetails">获取院校信息</a>
+	
+</body>
 </html>
