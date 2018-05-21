@@ -21,12 +21,13 @@ import com.jxufe.service.EEDetailsService;
 import com.jxufe.util.ImageUtil;
 
 @Controller
+@RequestMapping(value="/eedetailsHandler")
 public class EEDetailsHandler {
 
 	@Autowired
 	private EEDetailsService eEDetailsService;
 	
-	@RequestMapping(value="/queryeedetails")
+	@RequestMapping(value="/queryeedetails", method = RequestMethod.GET)
 	public String queryEEDetails(Map<String, Object> map) {
 		List<EEDetails> eEDetails = eEDetailsService.findAll();
 		map.put("eEDetails", eEDetails);

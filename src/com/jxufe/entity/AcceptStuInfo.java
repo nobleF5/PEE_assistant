@@ -2,16 +2,19 @@ package com.jxufe.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="AcceptStuInfo")
-public class AcceptStuInfo extends IdEntity {
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+@Table(name="AcceptStudentInfo")
+public class AcceptStuInfo{
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(nullable = false,name="AcceStu_ID")
+	protected int id = 0;
 	
 	@Column(nullable = true)
 	private int Dep_ID;

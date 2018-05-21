@@ -2,16 +2,19 @@ package com.jxufe.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="AcademyInfo")
-public class AcademyInfo extends IdEntity{
-
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+public class AcademyInfo{
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(nullable = false,name="Aca_ID")
+	private int Aca_ID = 0;
 	
 	@Column(nullable = true)
 	private String Aca_No;
@@ -26,8 +29,24 @@ public class AcademyInfo extends IdEntity{
 	private boolean Aca_211;
 	
 	@Column(nullable = true)
-	private boolean Aca_city;
+	private String Aca_city;
 	
+	@Column(nullable = true)
+	private String Dep_Url;
+	
+	
+	public int getAca_ID() {
+		return Aca_ID;
+	}
+	public void setAca_ID(int aca_ID) {
+		Aca_ID = aca_ID;
+	}
+	public String getDep_Url() {
+		return Dep_Url;
+	}
+	public void setDep_Url(String dep_Url) {
+		Dep_Url = dep_Url;
+	}
 	public String getAca_No() {
 		return Aca_No;
 	}
@@ -52,10 +71,10 @@ public class AcademyInfo extends IdEntity{
 	public void setAca_211(boolean aca_211) {
 		Aca_211 = aca_211;
 	}
-	public boolean isAca_city() {
+	public String isAca_city() {
 		return Aca_city;
 	}
-	public void setAca_city(boolean aca_city) {
+	public void setAca_city(String aca_city) {
 		Aca_city = aca_city;
 	}
 	
