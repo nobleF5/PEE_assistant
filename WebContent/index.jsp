@@ -10,7 +10,7 @@
 	
 </head>
 <body>
-	<a href="/PEE_assistant/eedetailsHandler/queryeedetails">获取院校信息</a>
+	<a href="/PEE_assistant/academyInfoHandler/queryAca_985AndAca_211">获取院校信息</a>
 	
 </body>
 </html>

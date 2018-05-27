@@ -76,7 +76,8 @@
 					url : "${pageContext.request.contextPath }/academyRecommend?"
 							+ "city=&&academyProperty=&&academyRank=&&departmentRank=&&degreeCategory=",
 					success : function(){}
-    		})
+    		});
+    	}
     </script>
 	
 </body>
