@@ -10,7 +10,8 @@
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 	
 		<!-- 配置自动扫描的包 -->
-	<context:component-scan base-package="com.jxufe">
+		<!-- service包 -->
+	<context:component-scan base-package="com.jxufe.service">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 		<context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
 	</context:component-scan>
@@ -29,17 +30,18 @@
 	</bean>
 		
 	<!-- 配置 JPA 的 EntityManagerFactory -->
+	<!-- 实体管理器 -->
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"></bean>
 		</property>		
-		<property name="packagesToScan" value="com.jxufe"></property>
+		<property name="packagesToScan" value="com.jxufe.entity"></property>
 		<property name="jpaProperties">
 			<props>
 				<prop key="hibernate.ejb.naming_strategy">org.hibernate.cfg.ImprovedNamingStrategy</prop>
-				<prop key="hibernate.hbm2ddl.auto">create</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.format_sql">true</prop>
 				<prop key="hibernate.dialect">org.hibernate.dialect.SQLServer2008Dialect</prop>
@@ -63,7 +65,8 @@
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
 	<!-- 配置 SpringData -->
-	<jpa:repositories base-package="com.jxufe"
+	<!-- dao -->
+	<jpa:repositories base-package="com.jxufe.repository"
 		entity-manager-factory-ref="entityManagerFactory">
 	</jpa:repositories>
 	

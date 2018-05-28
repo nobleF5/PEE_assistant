@@ -2,9 +2,12 @@ package com.jxufe.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,15 +20,23 @@ public class AcademyRankInfo{
 	protected int Rank_ID = 0;
 	
 	@Column(nullable = true)
-	private int Aca_ID;
-	
-	@Column(nullable = true)
 	private String Aca_Name;
 	
 	@Column(nullable = true)
 	private int Aca_Ranking;
-
 	
+	private AcademyInfo academyInfo;
+	
+	@JoinColumn(name="Aca_ID")
+	@ManyToOne(fetch=FetchType.LAZY)
+	public AcademyInfo getAcademyInfo() {
+		return academyInfo;
+	}
+
+	public void setAcademyInfo(AcademyInfo academyInfo) {
+		this.academyInfo = academyInfo;
+	}
+
 	public int getRank_ID() {
 		return Rank_ID;
 	}
@@ -33,15 +44,6 @@ public class AcademyRankInfo{
 	public void setRank_ID(int rank_ID) {
 		Rank_ID = rank_ID;
 	}
-
-	public int getAca_ID() {
-		return Aca_ID;
-	}
-
-	public void setAca_ID(int aca_ID) {
-		Aca_ID = aca_ID;
-	}
-
 	public String getAca_Name() {
 		return Aca_Name;
 	}
