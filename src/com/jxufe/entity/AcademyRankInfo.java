@@ -1,17 +1,15 @@
 package com.jxufe.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.OneToOne;
 
 @Entity
-@Table(name="AcademyRankInfo")
 public class AcademyRankInfo{
 
 	@Id
@@ -25,10 +23,10 @@ public class AcademyRankInfo{
 	@Column(nullable = true)
 	private int Aca_Ranking;
 	
+	@OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "academy_info")
 	private AcademyInfo academyInfo;
-	
-	@JoinColumn(name="Aca_ID")
-	@ManyToOne(fetch=FetchType.LAZY)
+
 	public AcademyInfo getAcademyInfo() {
 		return academyInfo;
 	}

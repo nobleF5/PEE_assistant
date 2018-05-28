@@ -1,16 +1,18 @@
 package com.jxufe.entity;
 
+import javax.persistence.Cacheable;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.OneToOne;
 
+@Cacheable
 @Entity
-@Table(name="AcademyInfo")
 public class AcademyInfo{
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false,name="Aca_ID")
@@ -33,8 +35,19 @@ public class AcademyInfo{
 	
 	@Column(nullable = true)
 	private String Dep_Url;
+
+	@OneToOne(cascade = CascadeType.ALL,mappedBy = "academyInfo")
+	private AcademyRankInfo academyRankInfo;
 	
-	
+	public AcademyRankInfo getAcademyRankInfo() {
+		return academyRankInfo;
+	}
+	public void setAcademyRankInfo(AcademyRankInfo academyRankInfo) {
+		this.academyRankInfo = academyRankInfo;
+	}
+	public String getAca_city() {
+		return Aca_city;
+	}
 	public int getAca_ID() {
 		return Aca_ID;
 	}
