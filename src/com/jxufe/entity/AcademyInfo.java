@@ -36,7 +36,7 @@ public class AcademyInfo{
 	@Column(nullable = true)
 	private String Dep_Url;
 
-	@OneToOne(cascade = CascadeType.ALL,mappedBy = "academyInfo")
+	@OneToOne(optional = false,mappedBy = "academyInfo")
 	private AcademyRankInfo academyRankInfo;
 	
 	public AcademyRankInfo getAcademyRankInfo() {

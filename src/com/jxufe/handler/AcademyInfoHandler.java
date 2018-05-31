@@ -7,12 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.jxufe.entity.AcademyInfo;
+import com.jxufe.entity.AcademyRankInfo;
 import com.jxufe.service.AcademyInfoService;
-//import com.jxufe.entity.AcademyRankInfo;
-//import com.jxufe.service.AcademyRankInfoService;
+import com.jxufe.service.AcademyRankInfoService;
 
 @Controller
 @RequestMapping(value="/academyInfoHandler")
@@ -20,9 +19,9 @@ public class AcademyInfoHandler {
 	
 	@Autowired
 	private AcademyInfoService academyInfoService;
-//	private AcademyRankInfoService academyRankInfoService;
+	@Autowired
+	private AcademyRankInfoService academyRankInfoService;
 	
-	@ResponseBody
 	@RequestMapping(value="queryAca_211")
 	public List<AcademyInfo> queryAca_211(Map<String, Object> map) {
 		List<AcademyInfo> academyInfo = academyInfoService.findByAca_211();
@@ -31,7 +30,6 @@ public class AcademyInfoHandler {
 		return academyInfo;
 	}
 	
-	@ResponseBody
 	@RequestMapping(value="queryAca_985AndAca_211")
 	public List<AcademyInfo> queryAca_985AndAca_211(Map<String, Object> map) {
 		List<AcademyInfo> academyInfo = academyInfoService.findByAca_985AndAca_211();
@@ -40,26 +38,35 @@ public class AcademyInfoHandler {
 		return academyInfo;
 	}
 	
-	@ResponseBody
 	@RequestMapping(value="queryByAca_city")
-	public List<AcademyInfo> findByAca_city(
+	public String findByAca_city(
 			@RequestParam(value="aca_city") String aca_city,
 			Map<String, Object> map) {
 		List<AcademyInfo> academyInfo = academyInfoService.findByAca_city(aca_city);
 		map.put("academyInfo", academyInfo);
 		System.out.println(academyInfo);
-		return academyInfo;
+		return "foreui/temp2";
 	}
 	
-//	@ResponseBody
-//	@RequestMapping(value="queryByAca_Ranking")
-//	public List<AcademyRankInfo> findByAca_Ranking(Map<String, Object> map) {
-//		int startRanking = 0;
-//		int endRanking = 200;
-//		List<AcademyRankInfo> academyRankInfo = academyRankInfoService.findByAca_Ranking(startRanking, endRanking);
-//		map.put("academyInfo", academyRankInfo);
-//		System.out.println(academyRankInfo);
-//		return academyRankInfo;
-//	}
+	@RequestMapping(value="queryByAca_Ranking")
+	public String findByAca_Ranking(
+			@RequestParam(value="startRanking") int startRanking,
+			@RequestParam(value="endRanking") int endRanking,
+			Map<String, Object> map) {
+		List<AcademyRankInfo> academyRankInfo = academyRankInfoService.findAcademyInfoByRank(startRanking, endRanking);
+		map.put("academyInfo", academyRankInfo);
+		System.out.println(academyRankInfo);
+		return "foreui/temp";
+	}
+	
+	@RequestMapping(value="queryAcademyInfoByAca_city")
+	public String findAcademyInfoByAca_city(
+			@RequestParam(value="Aca_city") String Aca_city,
+			Map<String, Object> map) {
+		List<AcademyRankInfo> academyRankInfo = academyRankInfoService.findAcademyInfoByAca_city(Aca_city);
+		map.put("academyInfo", academyRankInfo);
+		System.out.println(academyRankInfo);
+		return "foreui/temp";
+	}
 
 }

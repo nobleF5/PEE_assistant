@@ -47,6 +47,8 @@
     <servlet-name>springDispatcherServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
+  
+  <!--  
   <servlet>
     <servlet-name>login</servlet-name>
     <servlet-class>com.qq.connect.demo.IndexServlet</servlet-class>
@@ -70,5 +72,5 @@
   <servlet-mapping>
     <servlet-name>shuoshuo</servlet-name>
     <url-pattern>/shuoshuo.do</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> -->
 </web-app>

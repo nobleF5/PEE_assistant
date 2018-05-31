@@ -1,8 +1,8 @@
 package com.jxufe.entity;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,8 +23,8 @@ public class AcademyRankInfo{
 	@Column(nullable = true)
 	private int Aca_Ranking;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "academy_info")
+	@OneToOne(optional = false,fetch=FetchType.LAZY)
+    @JoinColumn(name = "Aca_ID")
 	private AcademyInfo academyInfo;
 
 	public AcademyInfo getAcademyInfo() {
