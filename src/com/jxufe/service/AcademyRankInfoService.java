@@ -28,5 +28,12 @@ public class AcademyRankInfoService {
 		return academyRankInfoRepository.findAcademyInfoByAca_city(Aca_city);
 	}
 	
+	@Transactional
+	public List<AcademyRankInfo> findAcademyInfoByAca_citAndRank(String Aca_city,int startRanking, int endRanking){
+		System.out.println("------------1-------------");
+		Aca_city = "%" + Aca_city + "%";
+		return academyRankInfoRepository.findAcademyInfoByAca_citAndRank(Aca_city,startRanking,endRanking);
+	}
+	
 	
 }

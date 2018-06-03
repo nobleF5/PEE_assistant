@@ -35,4 +35,16 @@ public class AcademyInfoService {
 		aca_city = "%" + aca_city + "%";
 		return academyInfoRepository.findByAca_city(aca_city);
 	}
+	
+	@Transactional
+	public List<AcademyInfo> findByAca_cityAndAca_211(String aca_city){
+		aca_city = "%" + aca_city + "%";
+		return academyInfoRepository.findByAca_cityAndAca_211(aca_city);
+	}
+	
+	@Transactional
+	public List<AcademyInfo> findByAca_cityAndAca_985AndAca_211(String aca_city){
+		aca_city = "%" + aca_city + "%";
+		return academyInfoRepository.findByAca_cityAndAca_985AndAca_211(aca_city);
+	}
 }
