@@ -20,8 +20,8 @@ public interface AcademyRankInfoRepository extends JpaRepository<AcademyRankInfo
 	List<AcademyRankInfo> findAcademyInfoByAca_city(String Aca_city);
 	
 	
-//	@Query(value = "select ai.* from academy_rank_info ari, academy_info ai where ari.aca_id = ar.aca_id and ari.aca_ranking>=?1 and ari.aca_ranking<=?2",nativeQuery = true)
-//	List<AcademyRankInfo> findAcademyInfoByRank(int startRanking, int endRanking);
-	@Query("select n from AcademyRankInfo n where n.Rank_ID = n.academyInfo.Aca_ID and n.Aca_Ranking >= :startRanking and n.Aca_Ranking <= :endRanking")
-	List<AcademyRankInfo> findAcademyInfoByRank(@Param("startRanking")int startRanking, @Param("endRanking")int endRanking);
+	@Query(value = "select ari.* from academy_rank_info ari, academy_info ai where ari.aca_id = ai.aca_id and ari.aca_ranking>=?1 and ari.aca_ranking<=?2",nativeQuery = true)
+	List<AcademyRankInfo> findAcademyInfoByRank(int startRanking, int endRanking);
+//	@Query("select n from AcademyRankInfo n where n.Rank_ID = n.academyInfo.Aca_ID and n.Aca_Ranking >= :startRanking and n.Aca_Ranking <= :endRanking")
+//	List<AcademyRankInfo> findAcademyInfoByRank(@Param("startRanking")int startRanking, @Param("endRanking")int endRanking);
 }
