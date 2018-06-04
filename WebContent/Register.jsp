@@ -217,6 +217,7 @@
 					<td></td>
 				</tr>
 			
+			<!--  
 				<tr>
 					<td><span id="telNumtip" class="lefttips">手机号码*</span></td>
 					<td>
@@ -236,7 +237,7 @@
 					</td>
 					<td><div id="div6">输入6位的验证码</div></td>
 				</tr>
-				
+			-->
 				<tr>
 					<td><span id="emailtip"  class="lefttips">邮箱</span></td>
 					<td><input type="text" name="email" id="email" placeholder="邮箱"
