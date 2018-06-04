@@ -51,7 +51,7 @@
         		</div>
         	</div>
 			<div id="loginFormWrap">
-				<form action="" id="loginForm" method="post">
+				<form action="/PEE_assistant/studentInfoHanlder/login" id="loginForm" method="post">
 					<div id="welcomewrap">
 						<span id="welcome">欢迎你来到考研小助手</span>
 					</div>
@@ -64,14 +64,14 @@
 							<span class="glyphicon glyphicon-user" id="userico"></span>
 						</span>
 						<input name="status" value="userlogin" style="display:none">
-						<input type="text" class="form-control" name="username" placeholder="请输入账号" value="${username}">
+						<input type="text" class="form-control" name="stu_mobile" placeholder="请输入注册手机号" value="${username}">
 					</div>
 					
 					<div class="input-group" id="passwordWrap">
 						<span class="input-group-addon" id="lock">
 							<span class="glyphicon glyphicon-lock" id="lockico" ></span>
 						</span>
-						<input type="password" class="form-control" name="passwd" placeholder="请输入密码" value="${passwd}">
+						<input type="password" class="form-control" name="password" placeholder="请输入密码" value="${passwd}">
 					</div>
 					<div id="a">
 						<a href="#" style="color: white">忘记密码?</a>

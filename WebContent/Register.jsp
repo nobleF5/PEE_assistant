@@ -150,12 +150,12 @@
 		</form>
 		<h1 align="center">用户注册</h1>
 		<hr />
-		<form action="${pageContext.request.contextPath }/add" method="post">
+		<form action="${pageContext.request.contextPath }/studentInfoHanlder/add" method="post">
 			<table align="center"  height="300px" width="600px">
 				<tr>
 					<td width="24%"><span id="userNameO" class="lefttips">用户名*</span></td>
 					<td width="52%">
-						<input type="text" name="username" id="userNameI" placeholder="用户名" 
+						<input type="text" name="stu_name" id="userNameI" placeholder="用户名" 
 							onfocus="UserNameDisplay('userNameI','userNameO','div1');" 
 							onblur="placeholderDisplay('userNameO','div1','userNameI','用户名');"/>
 					</td>
@@ -165,7 +165,7 @@
 				<tr>
 					<td><span id="passwordtip"  class="lefttips">密码*</span></td>
 					<td>
-						<input type="password" name="password" id="password" placeholder="密码"
+						<input type="password" name="stu_password" id="password" placeholder="密码"
 							onclick="UserNameDisplay('password','passwordtip','div2');" 
 							onblur="placeholderDisplay('passwordtip','div2','password','密码');"/>
 					</td>
@@ -179,49 +179,29 @@
 					<td><div id="div3">请确定密码一致性</div></td>
 				</tr>
 				
+				<tr style="height:12px"></tr>
 				<tr>
-					<td><span id="Agetip"  class="lefttips">年龄</span></td>
+					<td></td>
+					<td>性别:<label><input type="radio" checked="checked" name="stu_sex" value="男" />男</label>
+    						<label><input type="radio" name="stu_sex"  value="女" />女</label></td>
+					<td></td>
+				</tr>
+				
+				<tr style="height:12px"></tr>
+				
+				<tr>
+					<td><span id="acatip" class="lefttips">意愿院校*</span></td>
 					<td>
-						<input type="text" name="age" id="Age" placeholder="年龄" 
-							onclick="UserNameDisplay('Age','Agetip','div4');" 
-							onblur="placeholderDisplay('Agetip','div4','Age','年龄');"/>
+						<input type="text" name="stu_academy" id="aca" placeholder="意愿院校"
+							onclick="UserNameDisplay('aca','acatip','div45');" onblur="placeholderDisplay('acatip','div45','aca','意愿院校');">
 					</td>
-					<td><div id="div4">年龄为0到200之间</div></td>
+					<td><div id="div45">输入意愿院校</div></td>
 				</tr>
 				
-				<tr style="height:12px"></tr>
-				<tr>
-					<td></td>
-					<td>性别:<label><input type="radio" checked="checked" name="sex" value="boy" />男</label>
-    						<label><input type="radio" name="sex"  value="girl" />女</label></td>
-					<td></td>
-				</tr>
-				
-				<tr style="height:12px"></tr>
-				<tr>
-					<td></td>
-					<td>爱好:<label><input type="checkbox" checked="checked" name="hobby" value="basketball"/>篮球</label>
-    						<label><input type="checkbox" name="hobby" value="sking"/>轮滑</label>
-    						<label><input type="checkbox" name="hobby" value="bicycle"/>自行车</label></td>
-					<td></td>
-				</tr>
-				<tr style="height:12px"></tr>
-				
-				<tr>
-					<td></td>
-					<td>
-						<label style="width: 24%">验证码</label>
-						<input style="width:45%" type="text" name="codeImage" />
-						<input style="width:25%; position:relative;top:10px" type="image" id = "codeId" onclick="javascript:changeCode();" src="${pageContext.request.contextPath }/valicode"/>
-					</td>
-					<td></td>
-				</tr>
-			
-			<!--  
 				<tr>
 					<td><span id="telNumtip" class="lefttips">手机号码*</span></td>
 					<td>
-						<input type="text" name="tel" id="telNum" required placeholder="手机号码"
+						<input type="text" name="stu_mobile" id="telNum" placeholder="手机号码"
 							onclick="UserNameDisplay('telNum','telNumtip','div5');" onblur="placeholderDisplay('telNumtip','div5','telNum','手机号码');">
 					</td>
 					<td><div id="div5">输入11位的数字</div></td>
@@ -237,15 +217,17 @@
 					</td>
 					<td><div id="div6">输入6位的验证码</div></td>
 				</tr>
-			-->
-				<tr>
-					<td><span id="emailtip"  class="lefttips">邮箱</span></td>
-					<td><input type="text" name="email" id="email" placeholder="邮箱"
-						onclick="UserNameDisplay('email','emailtip','div7');" 
-						onblur="placeholderDisplay('emailtip','div7','email','邮箱');"/></td>
-					<td><div id="div7">输入有效邮箱地址</div></td>
-				</tr>
 				
+				<tr>
+					<td></td>
+					<td>
+						<label style="width: 24%">验证码</label>
+						<input style="width:45%" type="text" name="codeImage" />
+						<input style="width:25%; position:relative;top:10px" type="image" id = "codeId" onclick="javascript:changeCode();" src="${pageContext.request.contextPath }/studentInfoHanlder/valicode"/>
+					</td>
+					<td></td>
+				</tr>
+			
 				<tr>
 					<td></td>
 					<td>

@@ -19,10 +19,29 @@ public class StudentInfoService {
 	public void save(StudentInfo studentInfo) {
 		studentInfoResitory.saveAndFlush(studentInfo);
 	}
+
+	public boolean isStudentInfo(String stu_mobile, String stu_password) {
+		boolean isStu = false;
+		List<StudentInfo> stuInfos = studentInfoResitory.findStuByMobileAndPsw(stu_mobile,stu_password);
+		if(!stuInfos.isEmpty()) {
+			isStu =true;
+			System.out.println("查有此人");
+		}
+		return isStu;
+	}
 	
 	@Transactional
 	public List<StudentInfo> findAll() {
 		return studentInfoResitory.findAll();
+	}
+	
+	@Transactional
+	public void delete(Integer id){
+		studentInfoResitory.delete(id);
+	}
+	
+	public StudentInfo findOne(Integer id){
+		return studentInfoResitory.findOne(id);
 	}
 	
 }
