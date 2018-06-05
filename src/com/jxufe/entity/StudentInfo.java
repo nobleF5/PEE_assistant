@@ -16,14 +16,37 @@ public class StudentInfo {
 	
 	private String Stu_mobile;
 	
-	private String Stu_Name;
+	private String Stu_name;
 	
-	private String Stu_Password;
+	private String Stu_password;
 	
-	private String Stu_Sex;
+	private String Stu_sex;
 	
 	private String Stu_academy;
 
+	public String getStu_name() {
+		return Stu_name;
+	}
+
+	public void setStu_name(String stu_name) {
+		Stu_name = stu_name;
+	}
+
+	public String getStu_password() {
+		return Stu_password;
+	}
+
+	public void setStu_password(String stu_password) {
+		Stu_password = stu_password;
+	}
+
+	public String getStu_sex() {
+		return Stu_sex;
+	}
+
+	public void setStu_sex(String stu_sex) {
+		Stu_sex = stu_sex;
+	}
 
 	public String getStu_mobile() {
 		return Stu_mobile;
@@ -47,30 +70,6 @@ public class StudentInfo {
 
 	public void setStu_Id(int stu_Id) {
 		Stu_Id = stu_Id;
-	}
-
-	public String getStu_Name() {
-		return Stu_Name;
-	}
-
-	public void setStu_Name(String stu_Name) {
-		Stu_Name = stu_Name;
-	}
-
-	public String getStu_Password() {
-		return Stu_Password;
-	}
-
-	public void setStu_Password(String stu_Password) {
-		Stu_Password = stu_Password;
-	}
-
-	public String getStu_Sex() {
-		return Stu_Sex;
-	}
-
-	public void setStu_Sex(String stu_Sex) {
-		Stu_Sex = stu_Sex;
 	}
 
 }

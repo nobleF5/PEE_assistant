@@ -8,7 +8,7 @@
     
     <title>注册</title>
     
-	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="pragma" content="no-cache" charset="utf-8">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
@@ -99,6 +99,7 @@
 	<script src="${pageContext.request.contextPath }/js/VerifiCutDown.js"></script>
 	<script type="text/javascript">
 		$(function(){
+			console.log($("#telNum").val());
 			$("#identifyCodebt").click(function(){
 				var telNum = $("#telNum").val();
 				telNum = $.trim(telNum);
@@ -142,7 +143,10 @@
 					});
 				})
 			})
-		})
+			
+		}) 
+	
+	
 	</script>
 	</head>
 	<body>
@@ -155,9 +159,9 @@
 				<tr>
 					<td width="24%"><span id="userNameO" class="lefttips">用户名*</span></td>
 					<td width="52%">
-						<input type="text" name="stu_name" id="userNameI" placeholder="用户名" 
+						<input type="text" name="stu_name" required="required" id="userNameI" placeholder="用户名" 
 							onfocus="UserNameDisplay('userNameI','userNameO','div1');" 
-							onblur="placeholderDisplay('userNameO','div1','userNameI','用户名');"/>
+							onblur="checkUsername('userNameO','div1','userNameI','用户名');"/>
 					</td>
 					<td><div id="div1">用户名不能为空</div></td>
 				</tr>
@@ -165,17 +169,17 @@
 				<tr>
 					<td><span id="passwordtip"  class="lefttips">密码*</span></td>
 					<td>
-						<input type="password" name="stu_password" id="password" placeholder="密码"
+						<input type="password" name="stu_password" id="password0" placeholder="密码" required="required" pattern="^[a-zA-Z\d+]{6,16}$" 
 							onclick="UserNameDisplay('password','passwordtip','div2');" 
-							onblur="placeholderDisplay('passwordtip','div2','password','密码');"/>
+							onblur="checkPasswords('passwordtip','div2','password','密码');"/>
 					</td>
 					<td><div id="div2">密码不能为空</div></td>
 				</tr>
 				<tr>
 					<td><span id="password1tip"  class="lefttips">确定密码*</span></td>
-					<td><input name="passwordconfirm" type="password" id="password1" 
+					<td><input name="passwordconfirm" type="password" id="password1" required="required"
 						placeholder="确定密码" onclick="UserNameDisplay('password1','password1tip','div3');" 
-						onblur="placeholderDisplay('password1tip','div3','password1','确定密码');"/></td>
+						onblur="confirmPasswords('password1tip','div3','password1','确定密码');"/></td>
 					<td><div id="div3">请确定密码一致性</div></td>
 				</tr>
 				
@@ -201,8 +205,8 @@
 				<tr>
 					<td><span id="telNumtip" class="lefttips">手机号码*</span></td>
 					<td>
-						<input type="text" name="stu_mobile" id="telNum" placeholder="手机号码"
-							onclick="UserNameDisplay('telNum','telNumtip','div5');" onblur="placeholderDisplay('telNumtip','div5','telNum','手机号码');">
+						<input type="text" name="stu_mobile" id="telNum" placeholder="手机号码" pattern="^1[3-9]\d{9}$" required="required"
+							onclick="UserNameDisplay('telNum','telNumtip','div5');" onblur="checkTel('telNumtip','div5','telNum','手机号码');">
 					</td>
 					<td><div id="div5">输入11位的数字</div></td>
 				</tr>
@@ -223,7 +227,7 @@
 					<td>
 						<label style="width: 24%">验证码</label>
 						<input style="width:45%" type="text" name="codeImage" />
-						<input style="width:25%; position:relative;top:10px" type="image" id = "codeId" onclick="javascript:changeCode();" src="${pageContext.request.contextPath }/studentInfoHanlder/valicode"/>
+						<img style="width:25%; position:relative;top:10px" type="image" id = "codeId" onclick="javascript:changeCode();" src="${pageContext.request.contextPath }/studentInfoHanlder/valicode"/>
 					</td>
 					<td></td>
 				</tr>
@@ -245,6 +249,47 @@
 			</table>
 		</form>
 		<script>
+			function checkUsername(attribute,div,attribute1,placeholder){
+				placeholderDisplay(attribute,div,attribute1,placeholder);
+				var username = document.getElementById("userNameI");
+				if(username.validity.valueMissing){
+	           		username.setCustomValidity("用户名不能为空");  
+	        	}
+			}
+			
+			function checkPasswords(attribute,div,attribute1,placeholder){
+				placeholderDisplay(attribute,div,attribute1,placeholder);
+				var pass1 = document.getElementById("password0");
+				alert(pass1.value)
+				if(pass1.validity.valueMissing){
+	           		pass1.setCustomValidity("密码不能为空");  
+	        	}else if(pass1.validity.patternMismatch){
+	        		pass1.setCustomValidity("请输入6-16位的英文字母或数字组合");
+	        	}
+			
+			}
+			
+			function confirmPasswords(attribute,div,attribute1,placeholder){
+				placeholderDisplay(attribute,div,attribute1,placeholder);
+				var pass1 = document.getElementById("password0");
+				var pass2 = document.getElementById("password1");
+				console.log(pass2.value)
+				if(pass1.value!=pass2.value){
+					pass2.setCustomValidity("你输入的密码不匹配，请检查后重新输入");
+				}
+			}
+			
+			
+			function checkTel(attribute,div,attribute1,placeholder){
+				placeholderDisplay(attribute,div,attribute1,placeholder);
+				var tel = document.getElementById("telNum");
+				if(tel.validity.valueMissing){
+	           		tel.setCustomValidity("手机号码不能为空");  
+	        	}
+	        	if(tel.validity.patternMismatch){
+	        		tel.setCustomValidity("请输入正确的手机号码格式");
+	        	}
+			}
 		//隐去placeholder,弹出两边提示信息
 			function UserNameDisplay(attribute,attribute1,tips){
 				var userNameI=document.getElementById(attribute);
