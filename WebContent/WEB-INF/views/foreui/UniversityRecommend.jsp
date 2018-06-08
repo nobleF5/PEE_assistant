@@ -387,165 +387,34 @@
 					</div>
 				</div>
 				
-				<div class="academy_card">
-					<div class="pic-box">
-						<img src="${pageContext.request.contextPath }/img/Qinghua.jpg" />
-					</div>
-					<div class="ctx-box">
-						<div class="row-1 aca-title between-display">
-							<span class="academy-name"><strong>清华大学</strong></span>
-							<span>985/211</span>
-						</div>
-						<div class="row-2 aca-summary">
-							<p>清华大学（Tsinghua University），简称“清华”，由中华人民共和国教育部直属，中央直管副部级建制，位列“211工程”、“985工程”、“世界一流大学和一流学科”，入选“基础学科拔尖学生培养试验计划”、“高等学校创新能力提升计划”、“高等学校学科创新引智计划”，为九校联盟、中国大学校长联谊会、东亚研究型大学协会、亚洲大学联盟、环太平洋大学联盟、清华—剑桥—MIT低碳大学联盟成员，被誉为“红色工程师的摇篮”。</p>
-						</div>
-						<div class="row-3 aca-rank between-display">
-							<span class="ranking">排名:<span class="stress-rank">23</span></span>
-							<a href="#"><img class="aca-star" src="${pageContext.request.contextPath }/img/star.ico"/></a>
-						</div>
-					</div>
-				</div>
-				
-				<div class="academy_card">
-					<div class="pic-box">
-						<img src="${pageContext.request.contextPath }/img/jxufe.jpg" />
-					</div>
-					<div class="ctx-box">
-						<div class="row-1 aca-title between-display">
-							<span class="academy-name"><strong>江西财经大学</strong></span>
-							<span>985/211</span>
-						</div>
-						<div class="row-2 aca-summary">
-							<p>江西财经大学（Jiangxi University of Finance and Economics）坐落于英雄城南昌市，是一所财政部、教育部、江西省人民政府共建，以经济、管理类学科为主，法、工、文、理、农、教育、哲学、历史、艺术等学科协调发展的高等财经学府。2008年2月6日，时任国务院总理温家宝与学校师生共度除夕，并称赞说：“你们学校是所很好的学校”。江西省委书记鹿心社指出：“扎根红土地，培育栋梁材。江西财经大学为服务国家战略和地方经济社会发展做出了重大贡献”。</p>
-						</div>
-						<div class="row-3 aca-rank between-display">
-							<span class="ranking">排名:<span class="stress-rank">23</span></span>
-							<a><img class="aca-star" src="${pageContext.request.contextPath }/img/star.ico"/></a>
-						</div>
-					</div>
-				</div>
-				
-				<div class="academy_card">
-					<div class="pic-box">
-						<img src="${pageContext.request.contextPath }/img/Qinghua.jpg" />
-					</div>
-					<div class="ctx-box">
-						<div class="row-1 aca-title between-display">
-							<span class="academy-name"><strong>清华大学</strong></span>
-							<span>985/211</span>
-						</div>
-						<div class="row-2 aca-summary">
-							<p>清华大学（Tsinghua University），简称“清华”，由中华人民共和国教育部直属，中央直管副部级建制，位列“211工程”、“985工程”、“世界一流大学和一流学科”，入选“基础学科拔尖学生培养试验计划”、“高等学校创新能力提升计划”、“高等学校学科创新引智计划”，为九校联盟、中国大学校长联谊会、东亚研究型大学协会、亚洲大学联盟、环太平洋大学联盟、清华—剑桥—MIT低碳大学联盟成员，被誉为“红色工程师的摇篮”。</p>
-						</div>
-						<div class="row-3 aca-rank between-display">
-							<span class="ranking">排名:<span class="stress-rank">23</span></span>
-							<a href="#"><img class="aca-star" src="${pageContext.request.contextPath }/img/star.ico"/></a>
-						</div>
-					</div>
-				</div>
-			
-				<div class="academy_card">
-					<div class="pic-box">
-						<img src="${pageContext.request.contextPath }/img/jxufe.jpg" />
-					</div>
-					<div class="ctx-box">
-						<div class="row-1 aca-title between-display">
-							<span class="academy-name"><strong>江西财经大学</strong></span>
-							<span>985/211</span>
-						</div>
-						<div class="row-2 aca-summary">
-							<p>江西财经大学（Jiangxi University of Finance and Economics）坐落于英雄城南昌市，是一所财政部、教育部、江西省人民政府共建，以经济、管理类学科为主，法、工、文、理、农、教育、哲学、历史、艺术等学科协调发展的高等财经学府。2008年2月6日，时任国务院总理温家宝与学校师生共度除夕，并称赞说：“你们学校是所很好的学校”。江西省委书记鹿心社指出：“扎根红土地，培育栋梁材。江西财经大学为服务国家战略和地方经济社会发展做出了重大贡献”。</p>
-						</div>
-						<div class="row-3 aca-rank between-display">
-							<span class="ranking">排名:<span class="stress-rank">23</span></span>
-							<a><img class="aca-star" src="${pageContext.request.contextPath }/img/star.ico"/></a>
-						</div>
-					</div>
-				</div>
-				
-				<div class="academy_card">
-					<div class="pic-box">
-						<img src="${pageContext.request.contextPath }/img/Qinghua.jpg" />
-					</div>
-					<div class="ctx-box">
-						<div class="row-1 aca-title between-display">
-							<span class="academy-name"><strong>清华大学</strong></span>
-							<span>985/211</span>
-						</div>
-						<div class="row-2 aca-summary">
-							<p>清华大学（Tsinghua University），简称“清华”，由中华人民共和国教育部直属，中央直管副部级建制，位列“211工程”、“985工程”、“世界一流大学和一流学科”，入选“基础学科拔尖学生培养试验计划”、“高等学校创新能力提升计划”、“高等学校学科创新引智计划”，为九校联盟、中国大学校长联谊会、东亚研究型大学协会、亚洲大学联盟、环太平洋大学联盟、清华—剑桥—MIT低碳大学联盟成员，被誉为“红色工程师的摇篮”。</p>
-						</div>
-						<div class="row-3 aca-rank between-display">
-							<span class="ranking">排名:<span class="stress-rank">23</span></span>
-							<a href="#"><img class="aca-star" src="${pageContext.request.contextPath }/img/star.ico"/></a>
-						</div>
-					</div>
-				</div>
-			
-				<div class="academy_card">
-					<div class="pic-box">
-						<img src="${pageContext.request.contextPath }/img/jxufe.jpg" />
-					</div>
-					<div class="ctx-box">
-						<div class="row-1 aca-title between-display">
-							<span class="academy-name"><strong>江西财经大学</strong></span>
-							<span>985/211</span>
-						</div>
-						<div class="row-2 aca-summary">
-							<p>江西财经大学（Jiangxi University of Finance and Economics）坐落于英雄城南昌市，是一所财政部、教育部、江西省人民政府共建，以经济、管理类学科为主，法、工、文、理、农、教育、哲学、历史、艺术等学科协调发展的高等财经学府。2008年2月6日，时任国务院总理温家宝与学校师生共度除夕，并称赞说：“你们学校是所很好的学校”。江西省委书记鹿心社指出：“扎根红土地，培育栋梁材。江西财经大学为服务国家战略和地方经济社会发展做出了重大贡献”。</p>
-						</div>
-						<div class="row-3 aca-rank between-display">
-							<span class="ranking">排名:<span class="stress-rank">23</span></span>
-							<a><img class="aca-star" src="${pageContext.request.contextPath }/img/star.ico"/></a>
-						</div>
-					</div>
-				</div>
-				
-				<div class="academy_card">
-					<div class="pic-box">
-						<img src="${pageContext.request.contextPath }/img/Qinghua.jpg" />
-					</div>
-					<div class="ctx-box">
-						<div class="row-1 aca-title between-display">
-							<span class="academy-name"><strong>清华大学</strong></span>
-							<span>985/211</span>
-						</div>
-						<div class="row-2 aca-summary">
-							<p>清华大学（Tsinghua University），简称“清华”，由中华人民共和国教育部直属，中央直管副部级建制，位列“211工程”、“985工程”、“世界一流大学和一流学科”，入选“基础学科拔尖学生培养试验计划”、“高等学校创新能力提升计划”、“高等学校学科创新引智计划”，为九校联盟、中国大学校长联谊会、东亚研究型大学协会、亚洲大学联盟、环太平洋大学联盟、清华—剑桥—MIT低碳大学联盟成员，被誉为“红色工程师的摇篮”。</p>
-						</div>
-						<div class="row-3 aca-rank between-display">
-							<span class="ranking">排名:<span class="stress-rank">23</span></span>
-							<a href="#"><img class="aca-star" src="${pageContext.request.contextPath }/img/star.ico"/></a>
-						</div>
-					</div>
-				</div>
 			
 			</div>
 		</div>
 		
 		<script>
-				function setCityValue(cityElement){
-					var cityValue = document.getElementById("cityValue");
-					var city = cityElement.getElementsByTagName("a")[0];
-					var city_selected = document.getElementById("city_selected");
-					cityValue.value = city.innerHTML;
-					city_selected.innerHTML = cityValue.value;
-					
-				}
-				var submit = $("#recommend_div");
-				submit.onclick = getParam;
-				function getParam(){
-					var city_selected = $("#city_selected");
-					var city = city_selected.text();
-					var aca_property = $("#aca_property option:selected").text();
-					var acaRankStart = $(".acaRankStart").val();
-					var acaRankEnd = $(".acaRankEnd").val();
-					var proRankStart = $(".proRankStart").val();
-					var proRankEnd = $(".proRankEnd").val();
-					
-					console.log(city+","+aca_property+","+acaRankStart+","+acaRankEnd+","+proRankStart+","+proRankEnd)
-				}
 			
+			
+		
+			function setCityValue(cityElement) {
+				var cityValue = document.getElementById("cityValue");
+				var city = cityElement.getElementsByTagName("a")[0];
+				var city_selected = document.getElementById("city_selected");
+				cityValue.value = city.innerHTML;
+				city_selected.innerHTML = cityValue.value;
+
+			}
+			var submit = $("#recommend_div");
+			submit.onclick = getParam;
+			function getParam() {
+				var city_selected = $("#city_selected");
+				var city = city_selected.text();
+				var aca_property = $("#aca_property option:selected").text();
+				var acaRankStart = $(".acaRankStart").val();
+				var acaRankEnd = $(".acaRankEnd").val();
+				var proRankStart = $(".proRankStart").val();
+				var proRankEnd = $(".proRankEnd").val();
+
+			}
 		</script>
 	</body>
 

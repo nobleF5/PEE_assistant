@@ -33,6 +33,7 @@
 	<mvc:resources location="/WEB-INF/js/" mapping="/js/**"/>
 	<mvc:resources location="/WEB-INF/css/" mapping="/css/**"/>
 	<mvc:resources location="/WEB-INF/img/" mapping="/img/**"/>
+	<mvc:resources location="/WEB-INF/schoolImg/" mapping="/schoolImg/**"/>
 	<mvc:resources location="/WEB-INF/ico/" mapping="/ico/**"/>
 	<mvc:resources location="/WEB-INF/fonts/" mapping="/fonts/**"/>
 
