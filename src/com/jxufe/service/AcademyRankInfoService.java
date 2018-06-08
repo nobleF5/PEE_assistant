@@ -35,5 +35,27 @@ public class AcademyRankInfoService {
 		return academyRankInfoRepository.findAcademyInfoByAca_citAndRank(Aca_city,startRanking,endRanking);
 	}
 	
+	@Transactional
+	public List<AcademyRankInfo> findByAca_211(){
+		return academyRankInfoRepository.findByAca_211();
+	}
+	
+	@Transactional
+	public List<AcademyRankInfo> findByAca_985AndAca_211(){
+		return academyRankInfoRepository.findByAca_985AndAca_211();
+	}
+	
+	@Transactional
+	public List<AcademyRankInfo> findByAca_cityAndAca_211(String aca_city){
+		aca_city = "%" + aca_city + "%";
+		return academyRankInfoRepository.findByAca_cityAndAca_211(aca_city);
+	}
+	
+	@Transactional
+	public List<AcademyRankInfo> findByAca_cityAndAca_985AndAca_211(String aca_city){
+		aca_city = "%" + aca_city + "%";
+		return academyRankInfoRepository.findByAca_cityAndAca_985AndAca_211(aca_city);
+	}
+	
 	
 }

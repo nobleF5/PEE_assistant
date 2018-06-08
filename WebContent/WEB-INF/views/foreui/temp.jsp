@@ -77,15 +77,17 @@
   
     <table id="userOperTable" onmousemove="fmove()" onmouseout="fout()">
     	<tr>
-    		<th>Rank_ID</th>  
             <th>Aca_Name</th>   
             <th>Aca_Ranking</th>
+            <th>Aca_985</th>
+            <th>Aca_211</th>
     	</tr>
     	<c:forEach items="${academyInfo }" var="academy">
     	<tr>
-    		<td>${academy.rank_ID }</td>
 		    <td>${academy.aca_Name }</td>
 		    <td>${academy.aca_Ranking }</td>
+		    <td>${academy.academyInfo.aca_985 }</td>
+		    <td>${academy.academyInfo.aca_211 }</td>
 		</tr>
     	</c:forEach>	
     </table>
