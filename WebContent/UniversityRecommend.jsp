@@ -44,7 +44,6 @@
 			}
 			
 			#city_selected{
-				color: green;
 				font-weight: bold;
 			}
 			#cityChannel ul li,
@@ -254,7 +253,7 @@
 		<div id="funcOut">
 			<div id="funcBox">
 				<div id="cityChannel"><input id="cityValue" type="hidden" name="cityValue" value="" />
-					<div id="cityList"><span id="cityFollow">省市频道：</span><span id="city_selected"></span>
+					<div id="cityList"><span id="cityFollow">省市频道：</span><div style="display:inline" onclick="clearCityValue()"><span id="city_selected"></span></div>
 						<ul>
 							<li>
 								<div  onclick="setCityValue(this)">
@@ -384,6 +383,12 @@
 		</div>
 		
 		<script>
+		
+			function clearCityValue(){
+				var city_selected = $("#city_selected");
+				city_selected.text("");
+			}
+			
 			function recommendFun(){
 				var city_selected = $("#city_selected");
 				var city = city_selected.text();
@@ -414,7 +419,7 @@
 			function showAcademyCard(data){
 				clearAcademy_card();
 				$(data).each(function(){
-					addAcademy_card(this.aca_name,this.aca_985,
+					addAcademy_card(this.aca_id,this.aca_name,this.aca_985,
 							this.aca_211,this.aca_ranking);
 				});
 			}
@@ -424,7 +429,7 @@
 				aca_recommend.innerHTML = "";
 			}
 			
-			function addAcademy_card(acaName,aca_985,aca_211,acaRank){
+			function addAcademy_card(aca_id,acaName,aca_985,aca_211,acaRank){
 				var academy_card = document.getElementsByClassName("academy_card")[0];
 				var aca_recommend = document.getElementById("aca_recommend");
 				var new_academy_card= academy_card.cloneNode(true);
@@ -451,6 +456,8 @@
 
 //				var aca_summary = new_academy_card.getElementsByClassName("aca-summary")[0];
 //				aca_summary.innerHTML = "<p>高校简介</p>";
+
+				new_academy_card.setAttribute("aca_id",aca_id);
 
 				aca_recommend.appendChild(new_academy_card);
 			}

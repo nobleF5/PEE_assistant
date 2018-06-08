@@ -2,9 +2,12 @@ package com.jxufe.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,8 +19,9 @@ public class AcceptStuInfo{
 	@Column(nullable = false,name="AcceStu_ID")
 	protected int id = 0;
 	
-	@Column(nullable = true)
-	private int Dep_ID;
+	@OneToOne(optional = false,fetch=FetchType.LAZY)
+    @JoinColumn(name = "Dep_ID", referencedColumnName ="Dep_ID")
+	private DepartmentInfo departmentInfo;
 	
 	@Column(nullable = true)
 	private int AcceStu_Num;
@@ -27,17 +31,17 @@ public class AcceptStuInfo{
 	
 	@Column(nullable = true)
 	private String AcceStu_ExamScop;
-
-	public int getDep_ID() {
-		return Dep_ID;
+	
+	public DepartmentInfo getDepartmentInfo() {
+		return departmentInfo;
 	}
 
-	public void setDep_ID(int dep_ID) {
-		Dep_ID = dep_ID;
+	public void setDepartmentInfo(DepartmentInfo departmentInfo) {
+		this.departmentInfo = departmentInfo;
 	}
 
 	public int getAcceStu_Num() {
-		return AcceStu_Num;
+		return AcceStu_Num; 	
 	}
 
 	public void setAcceStu_Num(int acceStu_Num) {

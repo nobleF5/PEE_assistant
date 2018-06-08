@@ -33,10 +33,10 @@ public class AcademyRecommend {
 		if(aca_985==true&!"".equals(aca_city)&!"".equals(startRanking)&!"".equals(endRanking)) {
 			academyInfoList = academyRankInfoService.findAcademyInfoByAca_citAndAca_985AndRank(aca_city, startRanking, endRanking);
 		}
-		if(aca_211==true&!"".equals(aca_city)&!"".equals(startRanking)&!"".equals(endRanking)) {
+		if(aca_211==true&aca_985==false&!"".equals(aca_city)&!"".equals(startRanking)&!"".equals(endRanking)) {
 			academyInfoList = academyRankInfoService.findAcademyInfoByAca_citAndAca_211AndRank(aca_city, startRanking, endRanking);
 		}
-		if(aca_211==true&!"".equals(aca_city)&"".equals(startRanking)&"".equals(endRanking)) {
+		if(aca_211==true&aca_985==false&!"".equals(aca_city)&"".equals(startRanking)&"".equals(endRanking)) {
 			academyInfoList = academyRankInfoService.findByAca_cityAndAca_211(aca_city);
 		}
 		if(aca_985==true&!"".equals(aca_city)&"".equals(startRanking)&"".equals(endRanking)) {
@@ -45,9 +45,16 @@ public class AcademyRecommend {
 		if(aca_985==false&aca_211==false&!"".equals(aca_city)&!"".equals(startRanking)&!"".equals(endRanking)) {
 			academyInfoList = academyRankInfoService.findAcademyInfoByAca_citAndRank(aca_city, startRanking, endRanking);
 		}
+		if(aca_985==false&aca_211==false&"".equals(aca_city)&!"".equals(startRanking)&!"".equals(endRanking)) {
+			academyInfoList = academyRankInfoService.findAcademyInfoByRank(startRanking, endRanking);
+		}
 		if(aca_985==true&"".equals(aca_city)&!"".equals(startRanking)&!"".equals(endRanking)) {
+			academyInfoList = academyRankInfoService.findAcademyInfoByAca_985AndRank(startRanking, endRanking);
+		}
+		if(aca_211==true&aca_985==false&"".equals(aca_city)&!"".equals(startRanking)&!"".equals(endRanking)) {
 			academyInfoList = academyRankInfoService.findAcademyInfoByAca_211AndRank(startRanking, endRanking);
 		}
+		
 		return academyInfoList;
 	}
 	

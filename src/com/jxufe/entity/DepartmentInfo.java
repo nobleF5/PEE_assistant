@@ -2,9 +2,13 @@ package com.jxufe.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,9 +19,6 @@ public class DepartmentInfo{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(nullable = false,name="Dep_ID")
 	protected int id = 0;
-	
-	@Column(nullable = true)
-	private int Aca_ID;
 	
 	@Column(nullable = true)
 	private String Dep_No;
@@ -34,18 +35,37 @@ public class DepartmentInfo{
 	@Column(nullable = true)
 	private String AcceStu_Url;
 	
+	@OneToOne(optional = false,mappedBy = "departmentInfo")
+	private AcceptStuInfo acceptStuInfo;
 	
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="Aca_ID")
+	private AcademyInfo academyInfo;
+	
+	public AcademyInfo getAcademyInfo() {
+		return academyInfo;
+	}
+	public void setAcademyInfo(AcademyInfo academyInfo) {
+		this.academyInfo = academyInfo;
+	}
+	public AcceptStuInfo getAcceptStuInfo() {
+		return acceptStuInfo;
+	}
+	public void setAcceptStuInfo(AcceptStuInfo acceptStuInfo) {
+		this.acceptStuInfo = acceptStuInfo;
+	}
+	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getAcceStu_Url() {
 		return AcceStu_Url;
 	}
 	public void setAcceStu_Url(String acceStu_Url) {
 		AcceStu_Url = acceStu_Url;
-	}
-	public int getAca_ID() {
-		return Aca_ID;
-	}
-	public void setAca_ID(int aca_ID) {
-		Aca_ID = aca_ID;
 	}
 	public String getDep_No() {
 		return Dep_No;

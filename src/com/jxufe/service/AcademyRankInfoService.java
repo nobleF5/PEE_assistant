@@ -22,7 +22,8 @@ public class AcademyRankInfoService {
 		List<AcademyResult> academyInfoList = new ArrayList<>();
 		List<AcademyRankInfo> academyInfo = academyRankInfoRepository.findAll();
 		for(AcademyRankInfo info : academyInfo) {
-			AcademyResult vo = new AcademyResult(info.getAcademyInfo().getAca_Name(),
+			AcademyResult vo = new AcademyResult(info.getAcademyInfo().getAca_ID(),
+												 info.getAcademyInfo().getAca_Name(),
 												 info.getAca_Ranking(),
 												 info.getAcademyInfo().isAca_985(),
 												 info.getAcademyInfo().isAca_211());
@@ -32,13 +33,35 @@ public class AcademyRankInfoService {
 	}
 	
 	@Transactional
-	public List<AcademyRankInfo> findAcademyInfoByRank(int startRanking, int endRanking){
-		return academyRankInfoRepository.findAcademyInfoByRank(startRanking, endRanking);
+	public List<AcademyResult> findAcademyInfoByRank(int startRanking, int endRanking){
+		List<AcademyResult> academyInfoList = new ArrayList<>();
+		List<AcademyRankInfo> academyInfo = academyRankInfoRepository
+				.findAcademyInfoByRank(startRanking, endRanking);
+		for(AcademyRankInfo info : academyInfo) {
+			AcademyResult vo = new AcademyResult(info.getAcademyInfo().getAca_ID(),
+					 							 info.getAcademyInfo().getAca_Name(),
+												 info.getAca_Ranking(),
+												 info.getAcademyInfo().isAca_985(),
+												 info.getAcademyInfo().isAca_211());
+			academyInfoList.add(vo);
+		}
+		return academyInfoList;
 	}
 	
 	@Transactional
-	public List<AcademyRankInfo> findAcademyInfoByAca_985AndRank(int startRanking, int endRanking){
-		return academyRankInfoRepository.findAcademyInfoByAca_985AndRank(startRanking, endRanking);
+	public List<AcademyResult> findAcademyInfoByAca_985AndRank(int startRanking, int endRanking){
+		List<AcademyResult> academyInfoList = new ArrayList<>();
+		List<AcademyRankInfo> academyInfo = academyRankInfoRepository
+				.findAcademyInfoByAca_985AndRank(startRanking, endRanking);
+		for(AcademyRankInfo info : academyInfo) {
+			AcademyResult vo = new AcademyResult(info.getAcademyInfo().getAca_ID(),
+					 							 info.getAcademyInfo().getAca_Name(),
+												 info.getAca_Ranking(),
+												 info.getAcademyInfo().isAca_985(),
+												 info.getAcademyInfo().isAca_211());
+			academyInfoList.add(vo);
+		}
+		return academyInfoList;
 	}
 	
 	@Transactional
@@ -47,7 +70,8 @@ public class AcademyRankInfoService {
 		List<AcademyRankInfo> academyInfo = academyRankInfoRepository
 				.findAcademyInfoByAca_211AndRank(startRanking, endRanking);
 		for(AcademyRankInfo info : academyInfo) {
-			AcademyResult vo = new AcademyResult(info.getAcademyInfo().getAca_Name(),
+			AcademyResult vo = new AcademyResult(info.getAcademyInfo().getAca_ID(),
+					 							 info.getAcademyInfo().getAca_Name(),
 												 info.getAca_Ranking(),
 												 info.getAcademyInfo().isAca_985(),
 												 info.getAcademyInfo().isAca_211());
@@ -63,7 +87,8 @@ public class AcademyRankInfoService {
 		List<AcademyRankInfo> academyInfo = academyRankInfoRepository
 				.findAcademyInfoByAca_city(Aca_city);
 		for(AcademyRankInfo info : academyInfo) {
-			AcademyResult vo = new AcademyResult(info.getAcademyInfo().getAca_Name(),
+			AcademyResult vo = new AcademyResult(info.getAcademyInfo().getAca_ID(),
+					 							 info.getAcademyInfo().getAca_Name(),
 												 info.getAca_Ranking(),
 												 info.getAcademyInfo().isAca_985(),
 												 info.getAcademyInfo().isAca_211());
@@ -79,7 +104,8 @@ public class AcademyRankInfoService {
 		List<AcademyRankInfo> academyInfo = academyRankInfoRepository
 				.findAcademyInfoByAca_citAndRank(Aca_city,startRanking,endRanking);
 		for(AcademyRankInfo info : academyInfo) {
-			AcademyResult vo = new AcademyResult(info.getAcademyInfo().getAca_Name(),
+			AcademyResult vo = new AcademyResult(info.getAcademyInfo().getAca_ID(),
+					 							 info.getAcademyInfo().getAca_Name(),
 												 info.getAca_Ranking(),
 												 info.getAcademyInfo().isAca_985(),
 												 info.getAcademyInfo().isAca_211());
@@ -105,7 +131,8 @@ public class AcademyRankInfoService {
 		List<AcademyRankInfo> academyInfo = academyRankInfoRepository
 				.findByAca_cityAndAca_211(aca_city);
 		for(AcademyRankInfo info : academyInfo) {
-			AcademyResult vo = new AcademyResult(info.getAcademyInfo().getAca_Name(),
+			AcademyResult vo = new AcademyResult(info.getAcademyInfo().getAca_ID(),
+					 							 info.getAcademyInfo().getAca_Name(),
 												 info.getAca_Ranking(),
 												 info.getAcademyInfo().isAca_985(),
 												 info.getAcademyInfo().isAca_211());
@@ -121,7 +148,8 @@ public class AcademyRankInfoService {
 		List<AcademyRankInfo> academyInfo = academyRankInfoRepository
 				.findByAca_cityAndAca_985AndAca_211(aca_city);
 		for(AcademyRankInfo info : academyInfo) {
-			AcademyResult vo = new AcademyResult(info.getAcademyInfo().getAca_Name(),
+			AcademyResult vo = new AcademyResult(info.getAcademyInfo().getAca_ID(),
+					 							 info.getAcademyInfo().getAca_Name(),
 												 info.getAca_Ranking(),
 												 info.getAcademyInfo().isAca_985(),
 												 info.getAcademyInfo().isAca_211());
@@ -138,7 +166,8 @@ public class AcademyRankInfoService {
 		List<AcademyRankInfo> academyInfo = academyRankInfoRepository
 											.findAcademyInfoByAca_citAndAca_985AndRank(aca_city,startRanking, endRanking);
 		for(AcademyRankInfo info : academyInfo) {
-			AcademyResult vo = new AcademyResult(info.getAcademyInfo().getAca_Name(),
+			AcademyResult vo = new AcademyResult(info.getAcademyInfo().getAca_ID(),
+					 							 info.getAcademyInfo().getAca_Name(),
 												 info.getAca_Ranking(),
 												 info.getAcademyInfo().isAca_985(),
 												 info.getAcademyInfo().isAca_211());
@@ -155,7 +184,8 @@ public class AcademyRankInfoService {
 		List<AcademyRankInfo> academyInfo = academyRankInfoRepository
 											.findAcademyInfoByAca_citAndAca_211AndRank(aca_city,startRanking, endRanking);
 		for(AcademyRankInfo info : academyInfo) {
-			AcademyResult vo = new AcademyResult(info.getAcademyInfo().getAca_Name(),
+			AcademyResult vo = new AcademyResult(info.getAcademyInfo().getAca_ID(),
+					 							 info.getAcademyInfo().getAca_Name(),
 												 info.getAca_Ranking(),
 												 info.getAcademyInfo().isAca_985(),
 												 info.getAcademyInfo().isAca_211());
