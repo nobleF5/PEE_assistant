@@ -456,10 +456,25 @@
 
 //				var aca_summary = new_academy_card.getElementsByClassName("aca-summary")[0];
 //				aca_summary.innerHTML = "<p>高校简介</p>";
-
+				
+				var new_academy_card_a = document.createElement('a');
+				
+				var href = document.createAttribute("href");
+				href.value = "${pageContext.request.contextPath }/academyDetails.jsp?acaId=" + aca_id;
+				new_academy_card_a.setAttributeNode(href);
+				
+				var aid = document.createAttribute("aid");
+				aid.value = "a" + aca_id;
+				new_academy_card_a.setAttributeNode(aid);
+				
+				new_academy_card.appendChild(new_academy_card_a);
+				
 				new_academy_card.setAttribute("aca_id",aca_id);
-
 				aca_recommend.appendChild(new_academy_card);
+
+				new_academy_card.addEventListener("click",function(){
+					jump(aca_id);
+				});
 			}
 		
 			function setCityValue(cityElement) {
@@ -471,6 +486,14 @@
 
 			}
 
+			function jump(aca_id){
+				var academy_card = $("div[aca_id='"+ aca_id +"']");
+				var aid = "a" + aca_id;
+				var academy_card_a = $("a[aid='"+ aid +"']");
+				href = academy_card_a.attr("href");
+
+				window.location.href=href;
+			}
 		</script>
 	</body>
 
