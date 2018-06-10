@@ -20,6 +20,14 @@ public class AcademyResult {
 		this.aca_985 = aca_985;
 		this.aca_211 = aca_211;
 	}
+	
+	public AcademyResult(int aca_id, String aca_name, boolean aca_985, boolean aca_211) {
+		super();
+		this.aca_id = aca_id;
+		this.aca_name = aca_name;
+		this.aca_985 = aca_985;
+		this.aca_211 = aca_211;
+	}
 	public String getAca_name() {
 		return aca_name;
 	}

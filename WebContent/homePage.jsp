@@ -88,24 +88,39 @@
 							</div>
 
 						</div>
+						<style>
+							#personCenter:hover{
+								text-decoration:none;
+								cursor:pointer;
+							}
+						</style>
 						<div class="col-xs-2 middle--inner-header-second">
-
-							<div>
-								<img src="img/98b9d160847286efb8544c581bbb4599.jpg" />
-							</div>
-							<div>
-								<a href="${pageContext.request.contextPath }/login.jsp">
-									<span style="font-family: '楷体'; font-size: 23px;color: #666666;">登录</span>
-								</a>
-							</div>
-							<div>
-								<img src="img/98b9d160847286efb8544c581bbb4599.jpg" />
-							</div>
-							<div>
-								<a href="${pageContext.request.contextPath }/Register.jsp">
-									<span style="font-family: '楷体'; font-size: 23px;color: #666666;">注册</span>
-								</a>
-							</div>
+							<%if(request.getSession().getAttribute("stu_id") != null){%>
+								 <div style="font-size:16px;white-space: nowrap;color:#333">
+									欢迎<a id="personCenter" href="${pageContext.request.contextPath }/personnalCenter.html?stuId=<%=request.getSession().getAttribute("stu_id")%>"><span style="font-weight:bold;color:#D56464"><%=request.getSession().getAttribute("stu_name") %></span></a>	同学						 
+								 	<a href="${pageContext.request.contextPath }/studentInfoHanlder/loginOut">退出</a>
+								 </div>
+							<%} else{%>
+								<div>
+									<img src="img/98b9d160847286efb8544c581bbb4599.jpg" />
+								</div>
+								<div>
+									<a href="${pageContext.request.contextPath }/login.jsp">
+										<span style="font-family: '楷体'; font-size: 23px;color: #666666;">登录</span>
+									</a>
+								</div>
+								<div>
+									<img src="img/98b9d160847286efb8544c581bbb4599.jpg" />
+								</div>
+								<div>
+									<a href="${pageContext.request.contextPath }/Register.jsp">
+										<span style="font-family: '楷体'; font-size: 23px;color: #666666;">注册</span>
+									</a>
+								</div>
+							
+							<%} %>
+							
+							
 						</div>
 					</div>
 

@@ -51,7 +51,8 @@
         		</div>
         	</div>
 			<div id="loginFormWrap">
-				<form action="/PEE_assistant/studentInfoHanlder/login" id="loginForm" method="post">
+				<form action="" name="_form" id="_form" method="post">
+					<input type="hidden" id="_method" name="_method" value="POST" />
 					<div id="welcomewrap">
 						<span id="welcome">欢迎你来到考研小助手</span>
 					</div>
@@ -77,7 +78,7 @@
 						<a href="#" style="color: white">忘记密码?</a>
 					</div>
 					<div id="submitdiv">
-						<input type="submit" class="btn btn-success" value="登录" />
+						<input type="submit" id="submitBt" class="btn btn-success" value="登录" onclick="login()"/>
 					</div>
 					<div id="formfooder">
 						<a href="${pageContext.request.contextPath }/AdminLogin.jsp" target="_blank"><span id="userlogin">管理员登录</span></a>
@@ -86,6 +87,15 @@
 				</form>
 			</div>
 		</div>
+		
+		<script>
+			function login(){
+				var url = "${pageContext.request.contextPath }/studentInfoHanlder/login"
+				$("#_form").attr("action",url);
+				$("#_method").val("POST");
+				$("#_form").submit();
+			}
+		</script>
 	</body>
 </html>
 

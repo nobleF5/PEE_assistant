@@ -371,7 +371,6 @@
 			var acaName = zsml_condition.find(".acaName").text(data[0].aca_name);
 			var depName = zsml_condition.find(".depName").text(data[0].dep_name);
 			var depSpecialty = zsml_condition.find(".depSpecialty").text(data[0].dep_specialty);
-			var depDirection = zsml_condition.find(".depDirection").text(data[0].dep_direction);
 			var accStu = zsml_condition.find(".accStu").text();
 			
 			$("#acce_stu_num").text(data[0].acce_stu_num);
@@ -397,7 +396,12 @@
 			newacaDetails.css("display","");
 			
 			$(".zsml-res-items").append($(newacaDetails).get(0));
-			
+
+			var depDirection = ""
+			$(data).each(function(){
+				depDirection += this.dep_direction + ",";
+			});
+			zsml_condition.find(".depDirection").text(depDirection);
 			
 		}
 	</script>

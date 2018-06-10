@@ -20,6 +20,10 @@ public class StudentInfoService {
 		studentInfoResitory.saveAndFlush(studentInfo);
 	}
 
+	public List<StudentInfo> findStuByMobile(String stu_mobile) {
+		List<StudentInfo> info = studentInfoResitory.findStuByMobile(stu_mobile);
+		return info;
+	}
 	public boolean isStudentInfo(String stu_mobile, String stu_password) {
 		boolean isStu = false;
 		List<StudentInfo> stuInfos = studentInfoResitory.findStuByMobileAndPsw(stu_mobile,stu_password);
@@ -28,6 +32,11 @@ public class StudentInfoService {
 			System.out.println("查有此人");
 		}
 		return isStu;
+	}
+	
+	@Transactional
+	public StudentInfo getPersonnalCenter( int studentInfo_id) {
+		return studentInfoResitory.findStudentInfoByStuId(studentInfo_id);
 	}
 	
 	@Transactional
@@ -40,6 +49,7 @@ public class StudentInfoService {
 		studentInfoResitory.delete(id);
 	}
 	
+	@Transactional
 	public StudentInfo findOne(Integer id){
 		return studentInfoResitory.findOne(id);
 	}

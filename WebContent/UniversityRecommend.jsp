@@ -19,7 +19,7 @@
 			#funcOut {
 				margin: 0 auto;
 				width: 1100px;
-				height: 800px;
+				height: 600px;
 			}
 			
 			#cityChannel {
@@ -59,7 +59,6 @@
 				color: gray;
 				cursor: pointer;
 			}
-			
 			#aca_property,
 			#pro_property {
 				width: 85px;
@@ -88,9 +87,14 @@
 			}
 			
 			#recommend {
-				background: #FF6666;
+				background:gray;
 				color: white;
 			}
+			
+			#recommend:hover{
+				background: #FF6666;
+			}
+			
 			/*#aca_property option:hover{
 				background: gray;
 				color: white;
