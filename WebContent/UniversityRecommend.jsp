@@ -361,7 +361,7 @@
 				</div>
 			</div>
 	
-				<div class="academy_card"  style="display: none;">
+				<div class="academy_card" style="display: none;" >
 					<div class="pic-box" >
 						<img class="aca-img" src="${pageContext.request.contextPath }/img/jxufe.jpg" />
 					</div>
@@ -371,11 +371,15 @@
 							<span>985/211</span>
 						</div>
 						<div class="row-2 aca-summary">
-							<p>江西财经大学（Jiangxi University of Finance and Economics）坐落于英雄城南昌市，是一所财政部、教育部、江西省人民政府共建，以经济、管理类学科为主，法、工、文、理、农、教育、哲学、历史、艺术等学科协调发展的高等财经学府。2008年2月6日，时任国务院总理温家宝与学校师生共度除夕，并称赞说：“你们学校是所很好的学校”。江西省委书记鹿心社指出：“扎根红土地，培育栋梁材。江西财经大学为服务国家战略和地方经济社会发展做出了重大贡献”。</p>
+							<p>是中华人民共和国教育部直属、中央直管副部级建制的综合性研究型全国重点大学，是国家“七五”、“八五”首批重点建设高校之一，“211工程”首批重点建设的七所大学之一，“985工程”首批重点建设的九所高校之一，世界一流大学建设高校。是中国九校联盟（C9）、中国大学校长联谊会、“111计划”成员，“珠峰计划”首批11所名校之一，教育部首批“卓越工程师教育培养计划”高校，</p>
 						</div>
 						<div class="row-3 aca-rank between-display" style="margin-top:0px">
 							<span class="ranking">排名:<span class="stress-rank">23</span></span>
-							<a><img class="aca-star" src="${pageContext.request.contextPath }/img/star.ico"/></a>
+							<div id="collectAca">
+								<a id="star_link">
+									<img class="aca-star" src="${pageContext.request.contextPath }/img/star.ico"/>
+								</a>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -387,6 +391,8 @@
 		</div>
 		
 		<script>
+		
+			//addAcademy_card(473,"西安交通大学",true,true,34);
 		
 			function clearCityValue(){
 				var city_selected = $("#city_selected");
@@ -459,26 +465,54 @@
 				aca_img.alt = "抱歉，没有该高校的图片";
 
 //				var aca_summary = new_academy_card.getElementsByClassName("aca-summary")[0];
-//				aca_summary.innerHTML = "<p>高校简介</p>";
+//				aca_summary.innerHTML = "<p>高校简介高校简介高校简介高校简介高校简介高校简介高校简介高校简介高校简介高校简介高校简介高校简介高校简介</p>";
 				
 				var new_academy_card_a = document.createElement('a');
 				
 				var href = document.createAttribute("href");
 				href.value = "${pageContext.request.contextPath }/academyDetails.jsp?acaId=" + aca_id;
 				new_academy_card_a.setAttributeNode(href);
-				
 				var aid = document.createAttribute("aid");
 				aid.value = "a" + aca_id;
 				new_academy_card_a.setAttributeNode(aid);
-				
 				new_academy_card.appendChild(new_academy_card_a);
-				
 				new_academy_card.setAttribute("aca_id",aca_id);
 				aca_recommend.appendChild(new_academy_card);
-
 				new_academy_card.addEventListener("click",function(){
 					jump(aca_id);
 				});
+				
+				var star = new_academy_card.getElementsByClassName("aca-star")[0];
+				star.addEventListener("click",function(e){
+					 // 如果提供了事件对象，则这是一个非IE浏览器
+				    if ( e && e.stopPropagation ) {
+				        // 因此它支持W3C的stopPropagation()方法 
+				        e.stopPropagation();
+				    } else {
+				        // 否则，我们需要使用IE的方式来取消事件冒泡
+				        window.event.cancelBubble = true;
+				    }
+				    var stu_id = null;
+					 <%if(request.getSession().getAttribute("stu_id")!= null){%>
+				      		stu_id = <%= request.getSession().getAttribute("stu_id") %>
+					 <%}else{%>
+							alert("请登录!");
+					 		return;
+					 <%} %>
+					
+					$.ajax({
+						type:"POST",
+						url:"${pageContext.request.contextPath }/CollectAcademyInfoHandler/collectAcademy",
+						contentType : "application/x-www-form-urlencoded",
+						data:{
+							"stu_id":stu_id,
+							"aca_id":aca_id
+						},
+						success:function(data){alert(data.message)},
+						error:function(data){alert(data.message)}
+					});
+				})
+				 
 			}
 		
 			function setCityValue(cityElement) {

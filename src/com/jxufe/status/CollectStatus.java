@@ -1,12 +1,17 @@
 package com.jxufe.status;
 
-public class LoginStatus {
+import java.io.Serializable;
+
+public class CollectStatus implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	public final static int SUCCESS = 0;
 	public final static int FAILED = -1;
 	
-	public final static String SUCCESS_LOGIN_MSG = "成功登录";
-	public final static String ERROR_PASSWORD_MSG = "登录失败,请检查密码后再重新登录";
-	public final static String ERROR_ACCOUNT_MSG = "该账号不存在";
+	public final static String SUCCESS_COLLECT_MSG = "收藏成功";
+	public final static String FAILURE_COLLECT_MSG = "收藏失败，请稍后重试";
 	
 	private int code;
 	private String message;
@@ -23,6 +28,4 @@ public class LoginStatus {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
-	
 }

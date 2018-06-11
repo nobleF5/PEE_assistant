@@ -14,6 +14,28 @@
 	</head>
 
 	<body data-mod="user" class="user-index ">
+	
+		<div class="global-nav sf-header sf-header--index" style="border-top: 3px solid #1787e0;">
+			<div class="bottom-nav visible-xs visible-sm ">
+				<div class="opts">
+					<a class="opts-group " href="/"><i class="fa fa-home" aria-hidden="true"></i><span>首页</span></a>
+					<a class="opts-group " href="/questions"><i class="fa fa-comments" aria-hidden="true"></i><span>问答</span></a>
+					<a class="opts-group " href="/blogs"><i class="fa fa-pencil-square" aria-hidden="true"></i><span>专栏</span></a>
+					<a class="opts-group " href="/lives"><i class="fa fa-play-circle" aria-hidden="true"></i><span>讲堂</span></a>
+					
+				</div>
+			</div>
+			<nav class="container nav">
+				<div class="row hidden-xs hidden-sm" style="margin-left: -50px;">
+					<div class="col-sm-8 col-md-9 col-lg-9">
+						<div>
+								<h1 style="margin: 10px 4px;"><a style="text-decoration: none;margin-bottom: 20px; color: #1787e0;" href="#">个人中心</a></h1>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</div>
+	
 		<div class="profile">
 			<header class="profile__heading">
 				<div class="container">
@@ -52,9 +74,9 @@
 								</span>
 								<span class="profile__heading--other-item ">
 									<i class="fa fa-graduation-cap" aria-hidden="true"></i>
-									<span class="profile__school">江西财经大学
+									<span class="profile__school"><span id="expectAca">江西财经大学</span>
 										<span class="profile__heading--other-item-fgx ">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-										软件工程
+										<span id="expectDep">软件工程</span>
 										<span class="profile__heading-edit   btn btn-xs " data-type="school">
 											<i class="fa fa-pencil " aria-hidden="true"></i>
 											编辑你的意愿考研学校
@@ -174,8 +196,7 @@
 	</body>
 
 	<script>
-//		var param = getUrlParam("stuId");
-		param = 52;
+		var param = getUrlParam("stuId");
 		getPersonnalData(param);
 		
 		function getUrlParam(name) {  
@@ -187,8 +208,7 @@
 		function getPersonnalData(stuId){
 			$.ajax({
 				type:"GET",
-				url:"http://localhost:8080/PEE_assistant/studentInfoHanlder/getPersonalStudentInfo",
-				dataType: 'jsonp',
+				url:"/PEE_assistant/studentInfoHanlder/getPersonalStudentInfo",
 				data:{
 					"studentInfo_id":stuId
 				},
@@ -197,7 +217,13 @@
 		}
 		
 		function showPersonnalData(data){
-			console.log(eval(this));
+			var name =  $(".profile__heading--name");
+			name.text(data.stu_name);
+			var sex = $(".sex");
+			sex.text(data.stu_sex);
+			var academy = $("#expectAca");
+			academy.text(data.stu_academy)
+			var expectDep = $("#expectDep");
 		}
 		
 	</script>

@@ -1,7 +1,5 @@
 package com.jxufe.entity;
 
-import java.util.Collection;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -11,21 +9,23 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-@Entity(name="CollectAcademyInfo")
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
 public class CollectAcademyInfo {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(nullable=false, name="Start_ID")
+	@Column(nullable=false, name="start_id")
 	private int startId = 0;
 
 	@ManyToOne(fetch=FetchType.LAZY, optional = false, targetEntity=com.jxufe.entity.StudentInfo.class)
-	@JoinColumn(name="Stu_Id")
-	private Collection<StudentInfo> studentInfo;
+	@JoinColumn(name="stu_id")
+	private StudentInfo studentInfo;
 	
 	@ManyToOne(fetch=FetchType.LAZY, optional = false, targetEntity=com.jxufe.entity.AcademyInfo.class)
-	@JoinColumn(name="Aca_ID")
-	private Collection<AcademyInfo> academyInfo;
+	@JoinColumn(name="aca_id")
+	private AcademyInfo academyInfo;
 
 	public int getStartId() {
 		return startId;
@@ -35,22 +35,22 @@ public class CollectAcademyInfo {
 		this.startId = startId;
 	}
 
-	public Collection<StudentInfo> getStudentInfo() {
+	public StudentInfo getStudentInfo() {
 		return studentInfo;
 	}
 
-	public void setStudentInfo(Collection<StudentInfo> studentInfo) {
+	@JsonIgnore
+	public void setStudentInfo(StudentInfo studentInfo) {
 		this.studentInfo = studentInfo;
 	}
 
-	public Collection<AcademyInfo> getAcademyInfo() {
+	public AcademyInfo getAcademyInfo() {
 		return academyInfo;
 	}
-
-	public void setAcademyInfo(Collection<AcademyInfo> academyInfo) {
+	
+	@JsonIgnore
+	public void setAcademyInfo(AcademyInfo academyInfo) {
 		this.academyInfo = academyInfo;
 	}
-
-	
 	
 }

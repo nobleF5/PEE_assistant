@@ -1,6 +1,7 @@
 package com.jxufe.repository;
 
 import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
@@ -13,4 +14,5 @@ public interface CollectAcademyInfoRepository extends JpaRepository<CollectAcade
 			+ "academyInfo.Aca_ID,academyInfo.Aca_Name,academyInfo.Aca_985,academyInfo.Aca_211)"
 			+ "from CollectAcademyInfo cai where studentInfo.stuId = ?1")
 	List<AcademyResult> findByStudentInfoStuId(int stuId);
+	
 }

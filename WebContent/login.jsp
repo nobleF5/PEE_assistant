@@ -45,7 +45,7 @@
         			<span id="header-system">考研小助手</span>
         		</div>
         		<div id="header-right">
-	        		<span id="header-home"><a style="color: white;" href="#">首页</a> &nbsp;|&nbsp;</span>
+	        		<span id="header-home"><a style="color: white;" href="/PEE_assistant/homePage.jsp">首页</a> &nbsp;|&nbsp;</span>
 	        		<span id="header-function"><a style="color: white;"  href="#">服务大厅</a>&nbsp;|&nbsp;</span>
 	        		<span id="header-advice"><a style="color: white;"  href="#">提建议</a></span>
         		</div>

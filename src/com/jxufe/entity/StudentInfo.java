@@ -44,6 +44,11 @@ public class StudentInfo {
 		// TODO Auto-generated constructor stub
 	}
 
+	public StudentInfo(int stuId) {
+		super();
+		this.stuId = stuId;
+	}
+
 	public StudentInfo(int stuId, String stu_mobile, String stu_name, String stu_password, String stu_sex,
 			String stu_academy, String stu_academy_benke, String stu_profession, String stu_comments) {
 		super();

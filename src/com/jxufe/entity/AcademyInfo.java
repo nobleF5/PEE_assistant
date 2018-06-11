@@ -44,6 +44,29 @@ public class AcademyInfo{
 	@OneToMany(mappedBy = "academyInfo")
 	private List<DepartmentInfo> departmentInfos;
 	
+	public AcademyInfo() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	public AcademyInfo(int aca_ID) {
+		super();
+		Aca_ID = aca_ID;
+	}
+
+	public AcademyInfo(int aca_ID, String aca_No, String aca_Name, boolean aca_985, boolean aca_211, String aca_city,
+			String dep_Url, AcademyRankInfo academyRankInfo, List<DepartmentInfo> departmentInfos) {
+		super();
+		Aca_ID = aca_ID;
+		Aca_No = aca_No;
+		Aca_Name = aca_Name;
+		Aca_985 = aca_985;
+		Aca_211 = aca_211;
+		Aca_city = aca_city;
+		Dep_Url = dep_Url;
+		this.academyRankInfo = academyRankInfo;
+		this.departmentInfos = departmentInfos;
+	}
 	public List<DepartmentInfo> getDepartmentInfos() {
 		return departmentInfos;
 	}

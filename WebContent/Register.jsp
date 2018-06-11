@@ -256,7 +256,6 @@
 					$("#_method").val("POST");
 					$("#_form").submit();
 				}
-				
 			}	
 
 			function checkUsername(){
