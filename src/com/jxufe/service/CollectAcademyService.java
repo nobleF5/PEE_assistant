@@ -31,6 +31,7 @@ public class CollectAcademyService {
 		collectAcademyInfoRepository.saveAndFlush(collectAcademyInfo);
 	}
 	
+	@Transactional
 	public void cancleColect(int stuId,int aca_id) {
 		collectAcademyInfoRepository.deleteByStuIdAndAcaId(stuId, aca_id);
 	}
