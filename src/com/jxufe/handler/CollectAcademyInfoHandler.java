@@ -58,4 +58,22 @@ public class CollectAcademyInfoHandler {
 		return collectAcademy;
 	}
 	
+	//»°œ˚ ’≤ÿ
+	@ResponseBody
+	@RequestMapping("/cancelCollect")
+	public CollectStatus cancleCollect(@RequestParam("stu_id") int stu_id,@RequestParam("aca_id") int aca_id) {
+		CollectStatus collectStatus = new CollectStatus();
+		try {
+			collectAcademyService.cancleColect(stu_id,aca_id);
+			collectStatus.setCode(CollectStatus.SUCCESS);
+			collectStatus.setMessage(CollectStatus.SUCCESS_CANCLECOLLECT_MSG);
+		} catch (Exception e) {
+			collectStatus.setCode(CollectStatus.FAILED);
+			collectStatus.setMessage(CollectStatus.FAILURE_CANCLECOLLECT_MSG);
+			e.printStackTrace();
+		}
+		
+		return collectStatus;
+	}
+	
 }

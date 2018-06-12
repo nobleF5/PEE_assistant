@@ -12,6 +12,8 @@ public class CollectStatus implements Serializable{
 	
 	public final static String SUCCESS_COLLECT_MSG = "收藏成功";
 	public final static String FAILURE_COLLECT_MSG = "收藏失败，请稍后重试";
+	public final static String SUCCESS_CANCLECOLLECT_MSG = "取消收藏成功";
+	public final static String FAILURE_CANCLECOLLECT_MSG = "取消收藏失败";
 	
 	private int code;
 	private String message;

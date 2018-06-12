@@ -30,4 +30,8 @@ public class CollectAcademyService {
 	public void collectAcademy(CollectAcademyInfo collectAcademyInfo) {
 		collectAcademyInfoRepository.saveAndFlush(collectAcademyInfo);
 	}
+	
+	public void cancleColect(int stuId,int aca_id) {
+		collectAcademyInfoRepository.deleteByStuIdAndAcaId(stuId, aca_id);
+	}
 }

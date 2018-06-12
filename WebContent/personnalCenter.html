@@ -11,6 +11,88 @@
 		<link rel="stylesheet" href="https://static.segmentfault.com/v-5b1918d6/user/css/user.css" />
 		<link rel="stylesheet" href="https://static.segmentfault.com/v-5b1918d6/global/css/responsive.css" />
 		<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+		<style>
+			.academy_card{
+				background: white;
+				border: 1px solid gainsboro;
+				width: 240px;
+				height: 320px;
+				margin-right: 20px;
+				margin-top: 22px;
+				float: left;
+			}
+			.academy_card .pic-box{
+				width: 240px;
+				height: 50%;
+			}
+			.ctx-box{
+				width: 240px;
+				height: 50%;
+			}
+			.academy_card .pic-box img{
+				width: 100%;
+				height: 100%;
+			}
+			.between-display{
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-top: 10px;
+				padding: 0 10px;
+			}
+			.academy-name{
+				font-size: 18px;
+				color: green;
+			}
+			.aca-summary{
+				font-size: 14px;
+				max-height: 60%;
+				min-height: 60%;
+				display: -webkit-box;
+				-webkit-box-orient: vertical;
+				-webkit-line-clamp: 4;
+				overflow: hidden;
+			}
+			@font-face {
+				font-family:myfont;
+				src: url('${pageContext.request.contextPath }/fonts/长城中楷体繁.TTF');
+			}
+			p {
+				position: relative;
+				line-height: 20px;
+				max-height: 80px;
+				font-family: myfont;
+				overflow: hidden;
+			}
+			
+			p::after {
+				content: "...";
+				font-family: myfont;
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				padding-left: 40px;
+				background: -webkit-linear-gradient(left, transparent, white 55%);
+				background: -o-linear-gradient(right, transparent, white 55%);
+				background: -moz-linear-gradient(right, transparent, white 55%);
+				background: linear-gradient(to right, transparent, white 55%);
+			}
+			.ranking{
+				font-family: myfont;
+				font-size: 14px;
+				color: #888;
+			}
+			.stress-rank{
+				font-family: myfont;
+				font-size: 24px;
+				color: #F40;
+			}
+			.aca-star{
+				width: 28px;
+				height: 28px;
+				color: gold;
+			}
+		</style>
 	</head>
 
 	<body data-mod="user" class="user-index ">
@@ -163,26 +245,39 @@
 							<div class="profile__init">
 							</div>
 
-							<div class="panel panel-default">
+							<div class="panel panel-default" style="width: 600px; ">
 								<div class="panel-heading">
 									<h3 class="panel-title inline">收藏详情</h3>
 								</div>
-								<div class="panel-body">
-									<div class="profile__content">
+								<div class="panel_body">
+									<div class="profile__content" >
 										<!-- Tab panes -->
-										<div class="tab-content"  style="width: 360px; height: 240px;">
-											<div role="tabpanel" class="tab-pane active" id="navContent">
-												<ul class="profile-mine__content">
-													<li>
-														
-													</li>
-												</ul>
+										<div class="tab_content" id="tab_content" >
+											<div class="academy_card" style="display: none;" >
+												<div class="pic-box" >
+													<img class="aca-img" src="img/jxufe.jpg" />
+												</div>
+												<div class="ctx-box">
+													<div class="row-1 aca-title between-display">
+														<span class="academy-name"><strong>江西财经大学</strong></span>
+														<span>985/211</span>
+													</div>
+													<div class="row-2 aca-summary">
+														<p>江西财经大学（Jiangxi University of Finance and Economics）坐落于英雄城南昌市，是一所财政部、教育部、江西省人民政府共建，以经济、管理类学科为主，法、工、文、理、农、教育、哲学、历史、艺术等学科协调发展的高等财经学府。2008年2月6日，时任国务院总理温家宝与学校师生共度除夕，并称赞说：“你们学校是所很好的学校”。江西省委书记鹿心社指出：“扎根红土地，培育栋梁材。江西财经大学为服务国家战略和地方经济社会发展做出了重大贡献”。</p>
+													</div>
+													<div class="row-3 aca-rank between-display" style="margin-top:0px">
+														<span class="ranking">排名:<span class="stress-rank">23</span></span>
+														<div id="collectAca">
+															<a id="star_link">
+																<img class="aca-star" src="img/star.ico"/>
+															</a>
+														</div>
+													</div>
+												</div>
 											</div>
+											
 										</div>
 
-										<p class="text-right profile__content--footer">
-											查看全部
-										</p>
 									</div>
 								</div>
 							</div>
@@ -197,6 +292,7 @@
 
 	<script>
 		var param = getUrlParam("stuId");
+		//		var param = 52;
 		getPersonnalData(param);
 		
 		function getUrlParam(name) {  
@@ -205,15 +301,17 @@
 		    if (r != null) return unescape(r[2]); return null; // 返回参数值  
 		} 
 		
+		//显示个人信息
 		function getPersonnalData(stuId){
 			$.ajax({
 				type:"GET",
 				url:"/PEE_assistant/studentInfoHanlder/getPersonalStudentInfo",
+				//跨域请求，json格式前后端都要设置
 				data:{
 					"studentInfo_id":stuId
 				},
 				success:showPersonnalData
-			});
+			}); 
 		}
 		
 		function showPersonnalData(data){
@@ -224,7 +322,103 @@
 			var academy = $("#expectAca");
 			academy.text(data.stu_academy)
 			var expectDep = $("#expectDep");
+			loadAcdemy(data.stu_Id);
 		}
 		
+//		addAcademy_card(473,"西安交通大学",true,true,34);
+		
+		function loadAcdemy(studentId){
+			$.ajax({
+				type:"POST",
+				url:"/PEE_assistant/CollectAcademyInfoHandler/fromCollectAcademyGetAcademyResult",
+				contentType : "application/x-www-form-urlencoded",
+				data:{
+					"studentInfo_id":studentId
+				},
+				success:function(data){
+					$(data).each(function(){
+						addAcademy_card(this.aca_id,this.aca_name,this.aca_985,this.aca_211,this.aca_ranking);
+					})
+				}
+			});
+		}
+		
+		//显示收藏信息
+		function addAcademy_card(aca_id,acaName,aca_985,aca_211,acaRank){
+				var academy_card = document.getElementsByClassName("academy_card")[0];
+				var tab_content = document.getElementById("tab_content");
+				var new_academy_card= academy_card.cloneNode(true);
+				new_academy_card.setAttribute("isNew","yes");
+				
+				new_academy_card.style.display = "block";
+				new_academy_card.getElementsByClassName("academy-name")[0].innerHTML = "<strong>" + acaName +"</strong>";
+				new_academy_card.getElementsByClassName("stress-rank")[0].innerHTML = acaRank;
+				
+				var aca_title = new_academy_card.getElementsByClassName("aca-title")[0];
+				var acaProperty = aca_title.getElementsByTagName("span")[1];
+				if(aca_211==true){
+					acaProperty.innerHTML = "<strong style='color: purple;'>211</strong>";
+					if(aca_985==true){
+						acaProperty.innerHTML = "<strong style='color: red;'>985,211</strong>";
+					}
+				}else{
+					acaProperty.innerHTML = "双非";
+				}
+				
+				var aca_img = new_academy_card.getElementsByClassName("aca-img")[0];
+				aca_img.src = "schoolImg/" + acaName + ".jpg";
+				aca_img.alt = "抱歉，没有该高校的图片";
+
+				var new_academy_card_a = document.createElement('a');
+				
+				var href = document.createAttribute("href");
+				href.value = "/PEE_assistant/academyDetails.jsp?acaId=" + aca_id;
+				new_academy_card_a.setAttributeNode(href);
+				var aid = document.createAttribute("aid");
+				aid.value = "a" + aca_id;
+				new_academy_card_a.setAttributeNode(aid);
+				new_academy_card.appendChild(new_academy_card_a);
+				new_academy_card.setAttribute("aca_id",aca_id);
+				tab_content.appendChild(new_academy_card);
+				new_academy_card.addEventListener("click",function(){
+					jump(aca_id);
+				});
+				
+				/***小星星作用，取消作用*/
+				var star = new_academy_card.getElementsByClassName("aca-star")[0];
+				star.addEventListener("click",function(e){
+					console.log(param);
+					console.log(aca_id);
+					 // 如果提供了事件对象，则这是一个非IE浏览器
+				    if ( e && e.stopPropagation ) {
+				        // 因此它支持W3C的stopPropagation()方法 
+				        e.stopPropagation();
+				    } else {
+				        // 否则，我们需要使用IE的方式来取消事件冒泡
+				        window.event.cancelBubble = true;
+				    }
+					$.ajax({
+						type:"POST",
+						url:"/PEE_assistant/CollectAcademyInfoHandler/cancelCollect",
+						contentType : "application/x-www-form-urlencoded",
+						data:{
+							"stu_id":param,
+							"aca_id":aca_id
+						},
+						success:function(data){alert(data.message)},
+						error:function(data){alert(data.message)}
+					});
+				})
+				
+			}
+		
+		function jump(aca_id){
+				var academy_card = $("div[aca_id='"+ aca_id +"']");
+				var aid = "a" + aca_id;
+				var academy_card_a = $("a[aid='"+ aid +"']");
+				href = academy_card_a.attr("href");
+
+				window.location.href=href;
+			}
 	</script>
 </html>
