@@ -128,9 +128,9 @@ public class SendCode {
         return SMI;
     }
     
-//    public static void main(String[] args){
-//    	SendCode sendCode = new SendCode();
-//    	System.out.println("您的验证码位:"+sendCode.getIdentifyCode("15770700260"));
-//    }
+    public static void main(String[] args){
+    	SendCode sendCode = new SendCode();
+    	System.out.println("您的验证码位:"+sendCode.getIdentifyCode("15770700260"));
+    }
     
 }

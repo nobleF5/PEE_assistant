@@ -1,0 +1,100 @@
+0    DEBUG [2018-06-14 00:27:27]  Get connection for route {s}->https://api.netease.im:443
+416  DEBUG [2018-06-14 00:27:28]  Connecting to api.netease.im:443
+1641 DEBUG [2018-06-14 00:27:29]  CookieSpec selected: default
+1646 DEBUG [2018-06-14 00:27:29]  Auth cache not set in the context
+1647 DEBUG [2018-06-14 00:27:29]  Target auth state: UNCHALLENGED
+1650 DEBUG [2018-06-14 00:27:29]  Proxy auth state: UNCHALLENGED
+1651 DEBUG [2018-06-14 00:27:29]  Attempt 1 to execute request
+1652 DEBUG [2018-06-14 00:27:29]  Sending request: POST /sms/sendcode.action HTTP/1.1
+1653 DEBUG [2018-06-14 00:27:29]   >> "POST /sms/sendcode.action HTTP/1.1[\r][\n]"
+1656 DEBUG [2018-06-14 00:27:29]   >> "AppKey: 8c8e21d81a37b0ceb17efca8aa1877ea[\r][\n]"
+1657 DEBUG [2018-06-14 00:27:29]   >> "Nonce: 119192[\r][\n]"
+1658 DEBUG [2018-06-14 00:27:29]   >> "CurTime: 1528907243[\r][\n]"
+1658 DEBUG [2018-06-14 00:27:29]   >> "CheckSum: 270a13d259f5faa46bcaad3f8106366f4d9bbc85[\r][\n]"
+1658 DEBUG [2018-06-14 00:27:29]   >> "Content-Type: application/x-www-form-urlencoded;charset=utf-8[\r][\n]"
+1659 DEBUG [2018-06-14 00:27:29]   >> "Content-Length: 47[\r][\n]"
+1660 DEBUG [2018-06-14 00:27:29]   >> "Host: api.netease.im[\r][\n]"
+1661 DEBUG [2018-06-14 00:27:29]   >> "Connection: Keep-Alive[\r][\n]"
+1662 DEBUG [2018-06-14 00:27:29]   >> "User-Agent: Apache-HttpClient/4.5.1 (Java/1.8.0_151)[\r][\n]"
+1662 DEBUG [2018-06-14 00:27:29]   >> "[\r][\n]"
+1663 DEBUG [2018-06-14 00:27:29]  >> POST /sms/sendcode.action HTTP/1.1
+1663 DEBUG [2018-06-14 00:27:29]  >> AppKey: 8c8e21d81a37b0ceb17efca8aa1877ea
+1664 DEBUG [2018-06-14 00:27:29]  >> Nonce: 119192
+1665 DEBUG [2018-06-14 00:27:29]  >> CurTime: 1528907243
+1665 DEBUG [2018-06-14 00:27:29]  >> CheckSum: 270a13d259f5faa46bcaad3f8106366f4d9bbc85
+1665 DEBUG [2018-06-14 00:27:29]  >> Content-Type: application/x-www-form-urlencoded;charset=utf-8
+1666 DEBUG [2018-06-14 00:27:29]  >> Content-Length: 47
+1666 DEBUG [2018-06-14 00:27:29]  >> Host: api.netease.im
+1667 DEBUG [2018-06-14 00:27:29]  >> Connection: Keep-Alive
+1667 DEBUG [2018-06-14 00:27:29]  >> User-Agent: Apache-HttpClient/4.5.1 (Java/1.8.0_151)
+1668 DEBUG [2018-06-14 00:27:29]   >> "templateid=3064710&mobile=15770700260&codeLen=6"
+1740 DEBUG [2018-06-14 00:27:29]   << "HTTP/1.1 200 OK[\r][\n]"
+1746 DEBUG [2018-06-14 00:27:29]   << "Server: nginx[\r][\n]"
+1747 DEBUG [2018-06-14 00:27:29]   << "Date: Wed, 13 Jun 2018 16:27:25 GMT[\r][\n]"
+1747 DEBUG [2018-06-14 00:27:29]   << "Content-Type: application/json;charset=UTF-8[\r][\n]"
+1748 DEBUG [2018-06-14 00:27:29]   << "Content-Length: 46[\r][\n]"
+1748 DEBUG [2018-06-14 00:27:29]   << "Connection: keep-alive[\r][\n]"
+1749 DEBUG [2018-06-14 00:27:29]   << "Vary: Accept-Encoding[\r][\n]"
+1749 DEBUG [2018-06-14 00:27:29]   << "[\r][\n]"
+1752 DEBUG [2018-06-14 00:27:29]  Receiving response: HTTP/1.1 200 OK
+1753 DEBUG [2018-06-14 00:27:29]  << HTTP/1.1 200 OK
+1753 DEBUG [2018-06-14 00:27:29]  << Server: nginx
+1753 DEBUG [2018-06-14 00:27:29]  << Date: Wed, 13 Jun 2018 16:27:25 GMT
+1754 DEBUG [2018-06-14 00:27:29]  << Content-Type: application/json;charset=UTF-8
+1754 DEBUG [2018-06-14 00:27:29]  << Content-Length: 46
+1754 DEBUG [2018-06-14 00:27:29]  << Connection: keep-alive
+1754 DEBUG [2018-06-14 00:27:29]  << Vary: Accept-Encoding
+1768 DEBUG [2018-06-14 00:27:29]  Connection can be kept alive indefinitely
+1946 DEBUG [2018-06-14 00:27:29]   << "{"code":403,"msg":"no authcode authorization"}"
+1947 DEBUG [2018-06-14 00:27:29]  Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@1460a8c0
+1947 DEBUG [2018-06-14 00:27:29]  Connection can be kept alive indefinitely
+0    DEBUG [2018-06-14 00:27:51]  Get connection for route {s}->https://api.netease.im:443
+128  DEBUG [2018-06-14 00:27:51]  Connecting to api.netease.im:443
+890  DEBUG [2018-06-14 00:27:52]  CookieSpec selected: default
+893  DEBUG [2018-06-14 00:27:52]  Auth cache not set in the context
+894  DEBUG [2018-06-14 00:27:52]  Target auth state: UNCHALLENGED
+896  DEBUG [2018-06-14 00:27:52]  Proxy auth state: UNCHALLENGED
+896  DEBUG [2018-06-14 00:27:52]  Attempt 1 to execute request
+897  DEBUG [2018-06-14 00:27:52]  Sending request: POST /sms/sendcode.action HTTP/1.1
+898  DEBUG [2018-06-14 00:27:52]   >> "POST /sms/sendcode.action HTTP/1.1[\r][\n]"
+901  DEBUG [2018-06-14 00:27:52]   >> "AppKey: 8c8e21d81a37b0ceb17efca8aa1877ea[\r][\n]"
+902  DEBUG [2018-06-14 00:27:52]   >> "Nonce: 215806[\r][\n]"
+902  DEBUG [2018-06-14 00:27:52]   >> "CurTime: 1528907268[\r][\n]"
+903  DEBUG [2018-06-14 00:27:52]   >> "CheckSum: b6b3437a50197ada140329ebbf026c3091526b00[\r][\n]"
+903  DEBUG [2018-06-14 00:27:52]   >> "Content-Type: application/x-www-form-urlencoded;charset=utf-8[\r][\n]"
+903  DEBUG [2018-06-14 00:27:52]   >> "Content-Length: 47[\r][\n]"
+904  DEBUG [2018-06-14 00:27:52]   >> "Host: api.netease.im[\r][\n]"
+904  DEBUG [2018-06-14 00:27:52]   >> "Connection: Keep-Alive[\r][\n]"
+904  DEBUG [2018-06-14 00:27:52]   >> "User-Agent: Apache-HttpClient/4.5.1 (Java/1.8.0_151)[\r][\n]"
+905  DEBUG [2018-06-14 00:27:52]   >> "[\r][\n]"
+905  DEBUG [2018-06-14 00:27:52]  >> POST /sms/sendcode.action HTTP/1.1
+906  DEBUG [2018-06-14 00:27:52]  >> AppKey: 8c8e21d81a37b0ceb17efca8aa1877ea
+906  DEBUG [2018-06-14 00:27:52]  >> Nonce: 215806
+907  DEBUG [2018-06-14 00:27:52]  >> CurTime: 1528907268
+907  DEBUG [2018-06-14 00:27:52]  >> CheckSum: b6b3437a50197ada140329ebbf026c3091526b00
+907  DEBUG [2018-06-14 00:27:52]  >> Content-Type: application/x-www-form-urlencoded;charset=utf-8
+908  DEBUG [2018-06-14 00:27:52]  >> Content-Length: 47
+908  DEBUG [2018-06-14 00:27:52]  >> Host: api.netease.im
+908  DEBUG [2018-06-14 00:27:52]  >> Connection: Keep-Alive
+909  DEBUG [2018-06-14 00:27:52]  >> User-Agent: Apache-HttpClient/4.5.1 (Java/1.8.0_151)
+910  DEBUG [2018-06-14 00:27:52]   >> "templateid=3064710&mobile=15770700260&codeLen=6"
+996  DEBUG [2018-06-14 00:27:52]   << "HTTP/1.1 200 OK[\r][\n]"
+1014 DEBUG [2018-06-14 00:27:52]   << "Server: nginx[\r][\n]"
+1016 DEBUG [2018-06-14 00:27:52]   << "Date: Wed, 13 Jun 2018 16:27:48 GMT[\r][\n]"
+1018 DEBUG [2018-06-14 00:27:52]   << "Content-Type: application/json;charset=UTF-8[\r][\n]"
+1019 DEBUG [2018-06-14 00:27:52]   << "Content-Length: 46[\r][\n]"
+1021 DEBUG [2018-06-14 00:27:52]   << "Connection: keep-alive[\r][\n]"
+1022 DEBUG [2018-06-14 00:27:52]   << "Vary: Accept-Encoding[\r][\n]"
+1024 DEBUG [2018-06-14 00:27:52]   << "[\r][\n]"
+1030 DEBUG [2018-06-14 00:27:52]  Receiving response: HTTP/1.1 200 OK
+1031 DEBUG [2018-06-14 00:27:52]  << HTTP/1.1 200 OK
+1032 DEBUG [2018-06-14 00:27:52]  << Server: nginx
+1032 DEBUG [2018-06-14 00:27:52]  << Date: Wed, 13 Jun 2018 16:27:48 GMT
+1033 DEBUG [2018-06-14 00:27:52]  << Content-Type: application/json;charset=UTF-8
+1033 DEBUG [2018-06-14 00:27:52]  << Content-Length: 46
+1034 DEBUG [2018-06-14 00:27:52]  << Connection: keep-alive
+1034 DEBUG [2018-06-14 00:27:52]  << Vary: Accept-Encoding
+1054 DEBUG [2018-06-14 00:27:52]  Connection can be kept alive indefinitely
+1098 DEBUG [2018-06-14 00:27:52]   << "{"code":403,"msg":"no authcode authorization"}"
+1099 DEBUG [2018-06-14 00:27:52]  Releasing connection org.apache.http.impl.conn.ManagedClientConnectionImpl@1460a8c0
+1100 DEBUG [2018-06-14 00:27:52]  Connection can be kept alive indefinitely
