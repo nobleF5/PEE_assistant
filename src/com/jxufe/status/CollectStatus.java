@@ -10,10 +10,10 @@ public class CollectStatus implements Serializable{
 	public final static int SUCCESS = 0;
 	public final static int FAILED = -1;
 	
-	public final static String SUCCESS_COLLECT_MSG = "收藏成功";
-	public final static String FAILURE_COLLECT_MSG = "收藏失败，请稍后重试";
-	public final static String SUCCESS_CANCLECOLLECT_MSG = "取消收藏成功";
-	public final static String FAILURE_CANCLECOLLECT_MSG = "取消收藏失败";
+	public final static String SUCCESS_COLLECT_MSG = "鏀惰棌鎴愬姛";
+	public final static String FAILURE_COLLECT_MSG = "鏀惰棌澶辫触锛岃绋嶅悗閲嶈瘯";
+	public final static String SUCCESS_CANCLECOLLECT_MSG = "鍙栨秷鏀惰棌鎴愬姛";
+	public final static String FAILURE_CANCLECOLLECT_MSG = "鍙栨秷鏀惰棌澶辫触";
 	
 	private int code;
 	private String message;

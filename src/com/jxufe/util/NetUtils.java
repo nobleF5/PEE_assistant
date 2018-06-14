@@ -29,7 +29,7 @@ public class NetUtils {
 	
 	
 	/**
-	 * 第一次连接的时获取cookies
+	 * 绗竴娆¤繛鎺ョ殑鏃惰幏鍙朿ookies
 	 * @param url
 	 */
 	public Response getCookie(String url) {
@@ -50,7 +50,7 @@ public class NetUtils {
 		Connection con = getConnection(url);
 		Response response = null;
 		try {
-			//如果请求的数据是json数据,则要设置为ignoreContentType为true
+			//濡傛灉璇锋眰鐨勬暟鎹槸json鏁版嵁,鍒欒璁剧疆涓篿gnoreContentType涓簍rue
 			response = con.ignoreContentType(true).method(Method.GET).cookies(cookies).execute();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -63,7 +63,7 @@ public class NetUtils {
 		Connection con = getConnection(url);
 		Response response = null;
 		try {
-			//如果请求的数据是json数据,则要设置为ignoreContentType为true
+			//濡傛灉璇锋眰鐨勬暟鎹槸json鏁版嵁,鍒欒璁剧疆涓篿gnoreContentType涓簍rue
 			response = con.ignoreContentType(true).method(Method.POST).cookies(cookies).data(datas).execute();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -87,7 +87,7 @@ public class NetUtils {
 				String distribute = (String) JSONObj.get("mc");
 				System.out.println("distribute:" + distribute);
 			} catch (JSONException e) {
-				System.out.println("mc的json数据解析错误!");
+				System.out.println("mc鐨刯son鏁版嵁瑙ｆ瀽閿欒!");
 				e.printStackTrace();
 			}
 		}

@@ -61,8 +61,8 @@ public class UploadFile extends HttpServlet{
 		BufferedWriter writer = null;
 		
 		if(!ServletFileUpload.isMultipartContent(request)){
-			System.out.println("²»ÊÇ°üº¬enctype = multipart/form-dataµÄ±íµ¥ÇëÇó");
-			System.out.println("·ÃÎÊipÎª:"+ip);
+			System.out.println("ä¸æ˜¯åŒ…å«enctype = multipart/form-dataçš„è¡¨å•è¯·æ±‚");
+			System.out.println("è®¿é—®ipä¸º:"+ip);
 
 			try {
 				fw = new FileWriter(logfile,true);
@@ -73,13 +73,13 @@ public class UploadFile extends HttpServlet{
 				String format_ip = String.format("%-10s", ip);
 				String ip_format_date = String.format("%-20s", ip_date);
 				
-				writer.write("----------------------------------·ÃÎÊµÄipºÍÊ±¼ä----------------------------------");
+				writer.write("----------------------------------è®¿é—®çš„ipå’Œæ—¶é—´----------------------------------");
 				writer.newLine();
 				writer.write(format_ip);
 				writer.newLine();
 				writer.write(ip_format_date);
 				writer.newLine();
-				writer.write("----------------------------------·ÃÎÊµÄipºÍÊ±¼ä----------------------------------");
+				writer.write("----------------------------------è®¿é—®çš„ipå’Œæ—¶é—´----------------------------------");
 				writer.newLine();
 				writer.flush();
 				
@@ -120,25 +120,25 @@ public class UploadFile extends HttpServlet{
 			uploadDir.mkdir();
 		}
 		
-		//½âÎöÄÚÈİ
+		//è§£æå†…å®¹
 		try {
 			List<FileItem> formItems = upload.parseRequest(request);
 			
 			if(formItems != null && formItems.size() > 0){
 				for(FileItem item: formItems){
 					if(!item.isFormField()){
-						//Îª·ÀÖ¹ÎÄ¼ş¸²¸ÇµÄÏÖÏó·¢Éú£¬ÒªÎªÉÏ´«ÎÄ¼ş²úÉúÒ»¸öÎ¨Ò»µÄÎÄ¼şÃû
+						//ä¸ºé˜²æ­¢æ–‡ä»¶è¦†ç›–çš„ç°è±¡å‘ç”Ÿï¼Œè¦ä¸ºä¸Šä¼ æ–‡ä»¶äº§ç”Ÿä¸€ä¸ªå”¯ä¸€çš„æ–‡ä»¶å
 						String fileName = new File(makeFileName(item.getName())).getName();
 						
-						//Îª·ÀÖ¹Ò»¸öÄ¿Â¼ÏÂÃæ³öÏÖ¹ı¶àÎÄ¼ş£¬ÒªÊ¹ÓÃ hash Ëã·¨´òÉ¢´æ´¢
+						//ä¸ºé˜²æ­¢ä¸€ä¸ªç›®å½•ä¸‹é¢å‡ºç°è¿‡å¤šæ–‡ä»¶ï¼Œè¦ä½¿ç”¨ hash ç®—æ³•æ‰“æ•£å­˜å‚¨
 						String filePath = basePath + File.separator + makeChildDirectory(uploadDir);
 						filePath = makePath(fileName,filePath);
 						
 						String finalFilePath = filePath + File.separator + fileName;
-						System.out.println("ÎÄ¼ş´æ´¢¾ø¶ÔÂ·¾¶:" + finalFilePath);
+						System.out.println("æ–‡ä»¶å­˜å‚¨ç»å¯¹è·¯å¾„:" + finalFilePath);
 						
 						/**
-						 * ¼ÇÂ¼ÈÕÖ¾
+						 * è®°å½•æ—¥å¿—
 						 */
 
 						/*****************************************************************************/
@@ -152,12 +152,12 @@ public class UploadFile extends HttpServlet{
 							String format_img_url = String.format("%-200s", finalFilePath);
 							String upload_format_date = String.format("%-20s", upload_date);
 							
-							writer.write("----------------------------------ÉÏ´«ÎÄ¼şµÄÂ·¾¶ºÍÊ±¼ä----------------------------------");
+							writer.write("----------------------------------ä¸Šä¼ æ–‡ä»¶çš„è·¯å¾„å’Œæ—¶é—´----------------------------------");
 							writer.newLine();
 							writer.write(format_img_url);
 							writer.newLine();
 							writer.write(upload_format_date);
-							writer.newLine();writer.write("----------------------------------ÉÏ´«ÎÄ¼şµÄÂ·¾¶ºÍÊ±¼ä----------------------------------");
+							writer.newLine();writer.write("----------------------------------ä¸Šä¼ æ–‡ä»¶çš„è·¯å¾„å’Œæ—¶é—´----------------------------------");
 							writer.newLine();
 							writer.newLine();
 							writer.flush();
@@ -194,13 +194,13 @@ public class UploadFile extends HttpServlet{
 		
 	}
 	
-	// filename = "ÉÏ´«µÄÎÄ¼şÃû.jpg";
+	// filename = "ä¸Šä¼ çš„æ–‡ä»¶å.jpg";
 	private String makeFileName(String filename) {
 		   return UUID.randomUUID().toString() + "_" + filename;
 	}
 	
-	//Îª·ÀÖ¹Ò»¸öÄ¿Â¼ÏÂÃæ³öÏÖ¹ı¶àÎÄ¼ş£¬ÒªÊ¹ÓÃ hash Ëã·¨´òÉ¢´æ´¢
-	//°´ÎÄ¼şÃû´òÉ¢
+	//ä¸ºé˜²æ­¢ä¸€ä¸ªç›®å½•ä¸‹é¢å‡ºç°è¿‡å¤šæ–‡ä»¶ï¼Œè¦ä½¿ç”¨ hash ç®—æ³•æ‰“æ•£å­˜å‚¨
+	//æŒ‰æ–‡ä»¶åæ‰“æ•£
 	private String makePath(String filename, String basePath) {
 	    int hashcode = filename.hashCode();
 	    int dir1 = hashcode&0xf; // 0-15
@@ -208,17 +208,17 @@ public class UploadFile extends HttpServlet{
 	    String dir = basePath + "\\" + dir1 + "\\" + dir2;
 	    File file = new File(dir);
 	    if (!file.exists()) {
-	        // file.mkdir()  ²úÉúÒ»¼¶Ä¿Â¼
+	        // file.mkdir()  äº§ç”Ÿä¸€çº§ç›®å½•
 	        file.mkdirs();  //
 	    }
 	    return dir;
 	}
 	
-	//°´ÈÕÆÚ´òÉ¢
+	//æŒ‰æ—¥æœŸæ‰“æ•£
 	private String makeChildDirectory(File baseDirectory) {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		String dateDirectory = sdf.format(new Date());
-		//Ö»¹Ü´´½¨Ä¿Â¼
+		//åªç®¡åˆ›å»ºç›®å½•
 		File file = new File(baseDirectory,dateDirectory);
 		if(!file.exists()){
 			file.mkdirs(); 

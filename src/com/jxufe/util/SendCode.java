@@ -20,7 +20,7 @@ import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 /**
- * ·¢ËÍÑéÖ¤Âë
+ * å‘é€éªŒè¯ç 
  * @author Administrator
  *
  */
@@ -30,13 +30,13 @@ public class SendCode {
     private final String 
             APP_KEY="8c8e21d81a37b0ceb17efca8aa1877ea";
     private final String APP_SECRET="a9a523bf8b18";
-    //Ëæ»úÊı
+    //éšæœºæ•°
     private String NONCE="654321";
-    //¶ÌĞÅÄ£°åID
+    //çŸ­ä¿¡æ¨¡æ¿ID
     private final String TEMPLATEID="3064710";
-    //ÊÖ»úºÅ
+    //æ‰‹æœºå·
     private String MOBILE="15770700260";
-    //ÑéÖ¤Âë³¤¶È£¬·¶Î§4¡«10£¬Ä¬ÈÏÎª4
+    //éªŒè¯ç é•¿åº¦ï¼ŒèŒƒå›´4ï½10ï¼Œé»˜è®¤ä¸º4
     private final String CODELEN="6";
     
     public SendCode(){
@@ -54,25 +54,25 @@ public class SendCode {
         HttpPost httpPost = new HttpPost(SERVER_URL);
         String curTime = String.valueOf((new Date()).getTime() / 1000L);
         /*
-         * ²Î¿¼¼ÆËãCheckSumµÄjava´úÂë£¬ÔÚÉÏÊöÎÄµµµÄ²ÎÊıÁĞ±íÖĞ£¬ÓĞCheckSumµÄ¼ÆËãÎÄµµÊ¾Àı
+         * å‚è€ƒè®¡ç®—CheckSumçš„javaä»£ç ï¼Œåœ¨ä¸Šè¿°æ–‡æ¡£çš„å‚æ•°åˆ—è¡¨ä¸­ï¼Œæœ‰CheckSumçš„è®¡ç®—æ–‡æ¡£ç¤ºä¾‹
          */
         String checkSum = CheckSumBuilder.getCheckSum(APP_SECRET, NONCE, curTime);
 
         MOBILE=mobile;
         
-        // ÉèÖÃÇëÇóµÄheader
+        // è®¾ç½®è¯·æ±‚çš„header
         httpPost.addHeader("AppKey", APP_KEY);
         httpPost.addHeader("Nonce", NONCE);
         httpPost.addHeader("CurTime", curTime);
         httpPost.addHeader("CheckSum", checkSum);
         httpPost.addHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
 
-        // ÉèÖÃÇëÇóµÄµÄ²ÎÊı£¬requestBody²ÎÊı
+        // è®¾ç½®è¯·æ±‚çš„çš„å‚æ•°ï¼ŒrequestBodyå‚æ•°
         List<NameValuePair> nvps = new ArrayList<NameValuePair>();
         /*
-         * 1.Èç¹ûÊÇÄ£°å¶ÌĞÅ£¬Çë×¢Òâ²ÎÊımobileÊÇÓĞsµÄ£¬ÏêÏ¸²ÎÊıÅäÖÃÇë²Î¿¼¡°·¢ËÍÄ£°å¶ÌĞÅÎÄµµ¡±
-         * 2.²ÎÊı¸ñÊ½ÊÇjsonArrayµÄ¸ñÊ½£¬ÀıÈç "['13888888888','13666666666']"
-         * 3.paramsÊÇ¸ù¾İÄãÄ£°åÀïÃæÓĞ¼¸¸ö²ÎÊı£¬ÄÇÀïÃæµÄ²ÎÊıÒ²ÊÇjsonArray¸ñÊ½
+         * 1.å¦‚æœæ˜¯æ¨¡æ¿çŸ­ä¿¡ï¼Œè¯·æ³¨æ„å‚æ•°mobileæ˜¯æœ‰sçš„ï¼Œè¯¦ç»†å‚æ•°é…ç½®è¯·å‚è€ƒâ€œå‘é€æ¨¡æ¿çŸ­ä¿¡æ–‡æ¡£â€
+         * 2.å‚æ•°æ ¼å¼æ˜¯jsonArrayçš„æ ¼å¼ï¼Œä¾‹å¦‚ "['13888888888','13666666666']"
+         * 3.paramsæ˜¯æ ¹æ®ä½ æ¨¡æ¿é‡Œé¢æœ‰å‡ ä¸ªå‚æ•°ï¼Œé‚£é‡Œé¢çš„å‚æ•°ä¹Ÿæ˜¯jsonArrayæ ¼å¼
          */
         nvps.add(new BasicNameValuePair("templateid", TEMPLATEID));
         nvps.add(new BasicNameValuePair("mobile", MOBILE));
@@ -85,7 +85,7 @@ public class SendCode {
 			e.printStackTrace();
 		}
 
-        // Ö´ĞĞÇëÇó
+        // æ‰§è¡Œè¯·æ±‚
         HttpResponse response = null;
 		try {
 			response = httpClient.execute(httpPost);
@@ -97,8 +97,8 @@ public class SendCode {
 			e.printStackTrace();
 		}
         /*
-         * 1.´òÓ¡Ö´ĞĞ½á¹û£¬´òÓ¡½á¹ûÒ»°ã»á200¡¢315¡¢403¡¢404¡¢413¡¢414¡¢500
-         * 2.¾ßÌåµÄcodeÓĞÎÊÌâµÄ¿ÉÒÔ²Î¿¼¹ÙÍøµÄCode×´Ì¬±í
+         * 1.æ‰“å°æ‰§è¡Œç»“æœï¼Œæ‰“å°ç»“æœä¸€èˆ¬ä¼š200ã€315ã€403ã€404ã€413ã€414ã€500
+         * 2.å…·ä½“çš„codeæœ‰é—®é¢˜çš„å¯ä»¥å‚è€ƒå®˜ç½‘çš„CodeçŠ¶æ€è¡¨
          */
         try {
 			Object object="";
@@ -128,9 +128,9 @@ public class SendCode {
         return SMI;
     }
     
-    public static void main(String[] args){
-    	SendCode sendCode = new SendCode();
-    	System.out.println("ÄúµÄÑéÖ¤ÂëÎ»:"+sendCode.getIdentifyCode("15770700260"));
-    }
+//    public static void main(String[] args){
+//    	SendCode sendCode = new SendCode();
+//    	System.out.println("æ‚¨çš„éªŒè¯ç ä½:"+sendCode.getIdentifyCode("15770700260"));
+//    }
     
 }

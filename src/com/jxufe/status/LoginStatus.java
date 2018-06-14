@@ -4,9 +4,9 @@ public class LoginStatus {
 	public final static int SUCCESS = 0;
 	public final static int FAILED = -1;
 	
-	public final static String SUCCESS_LOGIN_MSG = "³É¹¦µÇÂ¼";
-	public final static String ERROR_PASSWORD_MSG = "µÇÂ¼Ê§°Ü,Çë¼ì²éÃÜÂëºóÔÙÖØĞÂµÇÂ¼";
-	public final static String ERROR_ACCOUNT_MSG = "¸ÃÕËºÅ²»´æÔÚ";
+	public final static String SUCCESS_LOGIN_MSG = "æˆåŠŸç™»å½•";
+	public final static String ERROR_PASSWORD_MSG = "ç™»å½•å¤±è´¥,è¯·æ£€æŸ¥å¯†ç åå†é‡æ–°ç™»å½•";
+	public final static String ERROR_ACCOUNT_MSG = "è¯¥è´¦å·ä¸å­˜åœ¨";
 	
 	private int code;
 	private String message;

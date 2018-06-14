@@ -29,7 +29,7 @@ public class StudentInfoService {
 		List<StudentInfo> stuInfos = studentInfoResitory.findStuByMobileAndPsw(stu_mobile,stu_password);
 		if(!stuInfos.isEmpty()) {
 			isStu =true;
-			System.out.println("查有此人");
+			System.out.println("鏌ユ湁姝や汉");
 		}
 		return isStu;
 	}

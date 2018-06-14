@@ -9,16 +9,16 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
 /**
- * Í³Ò»¶¨ÒåidµÄentity»ùÀà.
+ * ç»Ÿä¸€å®šä¹‰idçš„entityåŸºç±».
  * 
- * »ùÀàÍ³Ò»¶¨ÒåidµÄÊôĞÔÃû³Æ¡¢Êı¾İÀàĞÍ¡¢ÁĞÃûÓ³Éä¼°Éú³É²ßÂÔ.
- * ×ÓÀà¿ÉÖØÔØgetId()º¯ÊıÖØ¶¨ÒåidµÄÁĞÃûÓ³ÉäºÍÉú³É²ßÂÔ.
+ * åŸºç±»ç»Ÿä¸€å®šä¹‰idçš„å±æ€§åç§°ã€æ•°æ®ç±»å‹ã€åˆ—åæ˜ å°„åŠç”Ÿæˆç­–ç•¥.
+ * å­ç±»å¯é‡è½½getId()å‡½æ•°é‡å®šä¹‰idçš„åˆ—åæ˜ å°„å’Œç”Ÿæˆç­–ç•¥.
  * 
  */
-//JPA »ùÀàµÄ±êÊ¶
+//JPA åŸºç±»çš„æ ‡è¯†
 @MappedSuperclass
 public abstract class IdEntity implements Serializable {
-	/** ÃèÊö  */
+	/** æè¿°  */
 	private static final long serialVersionUID = 8430941165882152228L;
 
 	@Id

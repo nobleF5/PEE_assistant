@@ -19,13 +19,13 @@ public class ImageUtil {
         'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N',   
         'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 	
-	private static int SIZE = 4;//字符数量,用户设置
+	private static int SIZE = 4;//瀛楃鏁伴噺,鐢ㄦ埛璁剧疆
 	
-	private static int FONT_SIZE = 30;//字体大小
+	private static int FONT_SIZE = 30;//瀛椾綋澶у皬
 	
-	private static int WIDTH = 80;//宽度，根据字符数量和字体自动生成	
+	private static int WIDTH = 80;//瀹藉害锛屾牴鎹瓧绗︽暟閲忓拰瀛椾綋鑷姩鐢熸垚	
 	
-	private static int HEIGHT = 34;//高度,根据字体自动生成
+	private static int HEIGHT = 34;//楂樺害,鏍规嵁瀛椾綋鑷姩鐢熸垚
 	
 	
 	
@@ -68,7 +68,7 @@ public class ImageUtil {
 		Graphics graphics = bufferedImage.getGraphics();
 		
 		graphics.setColor(new Color(245, 245, 245));
-		graphics.setFont(new Font("宋体", Font.BOLD|Font.ITALIC, 20));
+		graphics.setFont(new Font("瀹嬩綋", Font.BOLD|Font.ITALIC, 20));
 		graphics.fillRect(0, 0, WIDTH, HEIGHT);
 		
 		Random random = new Random();
@@ -81,7 +81,7 @@ public class ImageUtil {
 			code = codes[random.nextInt(codes.length)]+"";
 			
 			graphics.drawString(code, x, 25);
-			x+=20;//验证码数字之间的距离
+			x+=20;//楠岃瘉鐮佹暟瀛椾箣闂寸殑璺濈
 		}
 		
 		return new Object[]{code, bufferedImage};

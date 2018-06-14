@@ -22,6 +22,9 @@ import com.jxufe.service.StudentInfoService;
 import com.jxufe.status.LoginStatus;
 import com.jxufe.util.ImageUtil;
 import com.jxufe.util.MyMd5;
+import com.miaodiyun.httpAiDemo.IndustrySMS;
+
+import net.sf.json.JSONObject;
 
 @Controller
 @RequestMapping(value="/studentInfoHanlder")
@@ -30,14 +33,14 @@ public class StudentInfoHanlder {
 	@Autowired
 	private StudentInfoService studentInfoService;
 	
-	//�޸��û�
+	//修改用户
 	@RequestMapping(value="studentInfo/{id}", method=RequestMethod.PUT)
 	public String updateUser(StudentInfo studentInfo){
 		studentInfoService.save(studentInfo);
 		return "redirect:/  ";
 	}
 	
-	//ɾ���û� 
+	//删除用户 
 	@RequestMapping(value="studentInfo/{id}",method=RequestMethod.DELETE)
 	public String userDelete(@PathVariable("id") Integer id){
 		
@@ -46,16 +49,28 @@ public class StudentInfoHanlder {
 	}
 	
 	
-	//����û�
+	//获得用户
 	@ResponseBody
 	@RequestMapping("/getPersonalStudentInfo")
 	public StudentInfo userOper(@RequestParam("studentInfo_id") int studentInfo_id){
 		StudentInfo studentInfo = studentInfoService.getPersonnalCenter(studentInfo_id);
-		System.out.println("�û���:" + studentInfo.getStu_name()+"�������������");
+		System.out.println("用户名:" + studentInfo.getStu_name()+"进入个人中心了");
 		return studentInfo;
 	}
 	
-	//�û���¼
+	//检查手机号
+	@ResponseBody
+	@RequestMapping("/checkMobile")
+	public boolean checkMobile(@RequestParam("stu_mobile") String stu_mobile){
+		boolean mobileExit = true;
+		List<StudentInfo> findStuByMobile = studentInfoService.findStuByMobile(stu_mobile);
+		if(findStuByMobile == null || findStuByMobile.size()<=0) {
+			mobileExit = false;
+		}
+		return mobileExit;
+	}
+	
+	//用户登录
 	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public String adminLogin(HttpServletRequest request,
 								@RequestParam("stu_mobile") String stu_mobile,
@@ -81,7 +96,7 @@ public class StudentInfoHanlder {
 					request.getSession().setAttribute("stu_id", studentInfo.getStu_Id());
 					request.getSession().setAttribute("stu_name", studentInfo.getStu_name());
 				}catch(Exception e) {
-					System.out.println("��ѧ��stu_id���õ�session��ʧ��");
+					System.out.println("将学生stu_id设置到session中失败");
 					e.printStackTrace();
 				}
 				return "redirect:/homePage.jsp";
@@ -92,7 +107,7 @@ public class StudentInfoHanlder {
 		}
 	}
 	
-	//�û��ǳ�
+	//用户登出
 	@RequestMapping(value="/loginOut",method=RequestMethod.GET)
 	public String loginOut(HttpServletRequest request) {
 		HttpSession session = request.getSession();
@@ -100,7 +115,7 @@ public class StudentInfoHanlder {
 		return "redirect:/homePage.jsp";
 	}
 	
-	//�û�ע��
+	//用户注册
 	@RequestMapping(value="/add",method=RequestMethod.POST)
 	public String save(StudentInfo studentInfo){
 		String stu_password = studentInfo.getStu_password();
@@ -124,4 +139,45 @@ public class StudentInfoHanlder {
 			e.printStackTrace();
 		}
 	}
+	
+	//获得手机验证码
+	@ResponseBody
+	@RequestMapping(value = "/getMobileValidataCode", method = RequestMethod.POST)
+	public String getMobileValidataCode(@RequestParam("tel") String tel,HttpSession session) {
+		// 验证码通知短信接口
+		int identifyCode = (int) ((Math.random() * 9 + 1) * 100000);
+		String identifyCodeStr = identifyCode + "";
+		IndustrySMS.setIdentidyCode(identifyCodeStr);
+		IndustrySMS.setTo(tel);
+		 String sendResponse = IndustrySMS.execute();
+//		String sendResponse = "{\"respCode\":\"00000\",\"respDesc\":\"请求成功。\",\"failCount\":\"0\",\"failList\":[],\"smsId\":\"cb2057884e9d4acd8568f40b309edc9c\"}";
+
+		JSONObject json = JSONObject.fromObject(sendResponse);
+
+		String sendMessageResult = json.get("respCode").toString();
+
+		session.setAttribute("mobileValidataCode", identifyCodeStr);
+		
+		System.out.println("手机为:+"+ tel +"验证码为:" + identifyCodeStr);
+		System.out.println("请求结果:" + sendMessageResult);
+		
+		return sendMessageResult;
+	}
+	
+		//验证用户输入的验证码
+		@ResponseBody
+		@RequestMapping(value = "/validataMobileValidataCode", method = RequestMethod.POST)
+		public String validataMobileValidataCode(@RequestParam("identifyCode") String mobilecode,
+												 HttpSession session) {
+			
+			String mobileValidataCode = session.getAttribute("mobileValidataCode").toString();
+			System.out.println(" 手机验证码为:" + mobileValidataCode);
+			if(mobileValidataCode.equals(mobilecode)){
+	    		System.out.println("后台:用户输入手机验证码正正确");
+	    		return "0";
+	    	}else{
+	    		System.out.println("后台：用户输入验证码不符合");
+	    		return "-1";
+	    	}
+		}
 }

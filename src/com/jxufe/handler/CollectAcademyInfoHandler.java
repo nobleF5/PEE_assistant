@@ -22,7 +22,7 @@ public class CollectAcademyInfoHandler {
 	@Autowired
 	private CollectAcademyService collectAcademyService;
 	
-	//查看收藏
+	//鏌ョ湅鏀惰棌
 	@ResponseBody
 	@RequestMapping("/fromCollectAcademyGetAcademyResult")
 	public List<AcademyResult> getCollectAcademy(@RequestParam("studentInfo_id") int studentInfo_id) {
@@ -37,7 +37,7 @@ public class CollectAcademyInfoHandler {
 		return findAll;
 	}
 	
-	//用户收藏
+	//鐢ㄦ埛鏀惰棌
 	@ResponseBody
 	@RequestMapping("/collectAcademy")
 	public CollectStatus collectAcademy(@RequestParam("stu_id") int stu_id,@RequestParam("aca_id") int aca_id) {
@@ -58,7 +58,7 @@ public class CollectAcademyInfoHandler {
 		return collectAcademy;
 	}
 	
-	//取消收藏
+	//鍙栨秷鏀惰棌
 	@ResponseBody
 	@RequestMapping("/cancelCollect")
 	public CollectStatus cancleCollect(@RequestParam("stu_id") int stu_id,@RequestParam("aca_id") int aca_id) {
