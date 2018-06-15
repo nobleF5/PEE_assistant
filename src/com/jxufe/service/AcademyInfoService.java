@@ -43,6 +43,12 @@ public class AcademyInfoService {
 	}
 	
 	@Transactional
+	public List<AcademyInfo> findByAcaNameLike(String acaName){
+		acaName = "%" + acaName + "%";
+		return academyInfoRepository.findByAcaNameLike(acaName);
+	}
+	
+	@Transactional
 	public List<AcademyInfo> findByAca_cityAndAca_985AndAca_211(String aca_city){
 		aca_city = "%" + aca_city + "%";
 		return academyInfoRepository.findByAca_cityAndAca_985AndAca_211(aca_city);

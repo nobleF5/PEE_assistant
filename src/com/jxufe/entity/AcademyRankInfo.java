@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class AcademyRankInfo{
 
@@ -31,6 +33,7 @@ public class AcademyRankInfo{
 		return academyInfo;
 	}
 
+	@JsonIgnore
 	public void setAcademyInfo(AcademyInfo academyInfo) {
 		this.academyInfo = academyInfo;
 	}

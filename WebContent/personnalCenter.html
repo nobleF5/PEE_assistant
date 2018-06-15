@@ -7,9 +7,10 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 		<title>个人中心</title>
-		<link rel="stylesheet" href="https://static.segmentfault.com/v-5b1918d6/global/css/global.css" />
-		<link rel="stylesheet" href="https://static.segmentfault.com/v-5b1918d6/user/css/user.css" />
-		<link rel="stylesheet" href="https://static.segmentfault.com/v-5b1918d6/global/css/responsive.css" />
+		
+		<link rel="stylesheet" href="css/global.css" />
+		<link rel="stylesheet" href="css/user.css" />
+		<link rel="stylesheet" href="css/responsive.css" />
 		<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
 		<style>
 			.academy_card{
@@ -114,6 +115,9 @@
 								<h1 style="margin: 10px 4px;"><a style="text-decoration: none;margin-bottom: 20px; color: #1787e0;" href="#">个人中心</a></h1>
 						</div>
 					</div>
+					<div style="float: right;line-height: 60px;font-size: 24px;">
+						<a style="text-decoration: none;font-weight: bold;cursor: pointer;color:#1787e0;" href="/PEE_assistant/homePage.jsp">返回首页</a>
+					</div>
 				</div>
 			</nav>
 		</div>
@@ -135,7 +139,7 @@
 						</div>
 						<div class="col-md-5 col-sm-9 col-xs-9">
 							<h2 class="profile__heading--name">
-								张三<small class="ml15"><a style="color:#1787e0"
+								<small class="ml15"><a style="color:#1787e0"
                                             href="#">查看完整档案</a></small></h2>
 							<div class="profile__heading--award">
 								<a class="profile__rank-btn" href="#"
@@ -144,7 +148,7 @@
 									<span class="profile__rank-btn-text" style="color:#1787e0">声望</span>
 								</a>
 								<div class="profile__heading--award-badge">
-                                    <span class="sex profile__heading--award-badge-count">男</span>
+                                    <span class="sex profile__heading--award-badge-count"></span>
 								</div>
 							</div>
 							<div class="profile__heading--other">
@@ -156,9 +160,9 @@
 								</span>
 								<span class="profile__heading--other-item ">
 									<i class="fa fa-graduation-cap" aria-hidden="true"></i>
-									<span class="profile__school"><span id="expectAca">江西财经大学</span>
+									<span class="profile__school"><span id="expectAca"></span>
 										<span class="profile__heading--other-item-fgx ">&nbsp;&nbsp;|&nbsp;&nbsp;</span>
-										<span id="expectDep">软件工程</span>
+										<span id="expectDep"></span>
 										<span class="profile__heading-edit   btn btn-xs " data-type="school">
 											<i class="fa fa-pencil " aria-hidden="true"></i>
 											编辑你的意愿考研学校
@@ -263,7 +267,7 @@
 														<span>985/211</span>
 													</div>
 													<div class="row-2 aca-summary">
-														<p>江西财经大学（Jiangxi University of Finance and Economics）坐落于英雄城南昌市，是一所财政部、教育部、江西省人民政府共建，以经济、管理类学科为主，法、工、文、理、农、教育、哲学、历史、艺术等学科协调发展的高等财经学府。2008年2月6日，时任国务院总理温家宝与学校师生共度除夕，并称赞说：“你们学校是所很好的学校”。江西省委书记鹿心社指出：“扎根红土地，培育栋梁材。江西财经大学为服务国家战略和地方经济社会发展做出了重大贡献”。</p>
+														是中华人民共和国教育部直属、中央直管副部级建制的综合性研究型全国重点大学，是国家“七五”、“八五”首批重点建设高校之一，“211工程”首批重点建设的七所大学之一，“985工程”首批重点建设的九所高校之一，世界一流大学建设高校。是中国九校联盟（C9）、中国大学校长联谊会、“111计划”成员，“珠峰计划”首批11所名校之一，教育部首批“卓越工程师教育培养计划”高校，</p>
 													</div>
 													<div class="row-3 aca-rank between-display" style="margin-top:0px">
 														<div id="collectAca">
@@ -324,7 +328,7 @@
 		}
 		
 //		addAcademy_card(473,"西安交通大学",true,true,34);
-		
+		//考虑取消收藏后重新加载数据，得把之前的数据展示清空，在发ajax重新获取数据展示
 		function loadAcdemy(studentId){
 			$.ajax({
 				type:"POST",

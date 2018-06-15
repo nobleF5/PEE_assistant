@@ -32,6 +32,25 @@ public class AcademyRankInfoService {
 		return academyInfoList;
 	}
 	
+
+	
+	@Transactional
+	public List<AcademyResult> findAcademyInfoByAca_Name(String acaName){
+		List<AcademyResult> academyInfoList = new ArrayList<>();
+		List<AcademyRankInfo> academyInfo = academyRankInfoRepository
+				.findAcademyInfoByAca_Name(acaName);
+		for(AcademyRankInfo info : academyInfo) {
+			AcademyResult vo = new AcademyResult(info.getAcademyInfo().getAca_ID(),
+					 							 info.getAcademyInfo().getAca_Name(),
+												 info.getAca_Ranking(),
+												 info.getAcademyInfo().isAca_985(),
+												 info.getAcademyInfo().isAca_211());
+			academyInfoList.add(vo);
+		}
+		return academyInfoList;
+	}
+	
+	
 	@Transactional
 	public List<AcademyResult> findAcademyInfoByRank(int startRanking, int endRanking){
 		List<AcademyResult> academyInfoList = new ArrayList<>();

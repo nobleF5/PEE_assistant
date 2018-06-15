@@ -24,6 +24,12 @@ public interface AcademyRankInfoRepository extends JpaRepository<AcademyRankInfo
 			nativeQuery = true)
 	List<AcademyRankInfo> findAcademyInfoByAca_city(String Aca_city);
 	
+	@Query(value = "select ari.* "
+			+ "from academy_info ai , academy_rank_info ari "
+			+ "where ai.aca_id = ari.aca_id and ai.aca_name = ?1",
+			nativeQuery = true)
+	List<AcademyRankInfo> findAcademyInfoByAca_Name(String Aca_Name);
+	
 	
 	@Query(value = "select ari.* "
 			+ "from academy_rank_info ari, academy_info ai "

@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.jxufe.entity.AcademyInfo;
 import com.jxufe.entityResult.AcademyResult;
+import com.jxufe.service.AcademyInfoService;
 import com.jxufe.service.AcademyRankInfoService;
 
 @Controller
@@ -18,6 +20,28 @@ public class AcademyRecommend {
 	
 	@Autowired
 	private AcademyRankInfoService academyRankInfoService;
+	@Autowired
+	private AcademyInfoService academyInfoService;
+
+	
+	
+	@ResponseBody
+	@RequestMapping(value="/queryAcaName")
+	public List<AcademyResult> queryAcademyInfoByAca_Name(@RequestParam(value="acaName") String acaName){
+		List<AcademyResult> findByAcaNameLike = null;
+		findByAcaNameLike = academyRankInfoService.findAcademyInfoByAca_Name(acaName);
+		System.out.println("/queryAcaLike:"+findByAcaNameLike);
+		return findByAcaNameLike;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/queryAcaLike")
+	public List<AcademyInfo> queryAcaLike(@RequestParam(value="acaName") String acaName){
+		List<AcademyInfo> findByAcaNameLike = null;
+		findByAcaNameLike = academyInfoService.findByAcaNameLike(acaName);
+		System.out.println("/queryAcaLike:"+findByAcaNameLike);
+		return findByAcaNameLike;
+	}
 	
 	@ResponseBody
 	@RequestMapping(value="/queryAca", method = RequestMethod.POST)

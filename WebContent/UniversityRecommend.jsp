@@ -109,13 +109,16 @@
 				width: 85px;
 				height: 26px;
 				font-size: 14px;
+				margin: 5px 10px;
+				padding: 2px 2px;
 			}
 			
 			.funcAssembly {
 				float: left;
 			}
 			#aca_recommend{
-				position: relative;
+				position: absolute;
+				margin-top:25px;
 			}
 			#funcOut .pop_box{
 				background: white;
@@ -345,7 +348,7 @@
 						<option value="default" selected="">院校性质</option>
 						<option value="_985">985</option>
 						<option value="_211">211</option>
-						<option value="double_non">双非</option>
+						<option value="double_non">所有</option>
 					</select>
 				</div>
 				<div class="funcAssembly">院校排名： <input class="rank_input acaRankStart" type="text" name="aca_startRanking" value="1" />- <input class="rank_input acaRankEnd" type="text" name="aca_endRanking" value="100" /></div>
@@ -359,7 +362,61 @@
 				<div id="recommend_div" onclick="recommendFun()">
 					<a id="recommend" href="#">一键推荐</a>
 				</div>
+				<div id="searchDiv">
+					<input type="search" id="smallSearch" class="rank_input" placeholder="搜索院校"/>
+					
+				</div>
 			</div>
+	
+	
+	
+			<style>
+				#content{
+					margin:12px auto;
+					width:100%;
+					padding-left: 10px;
+				}
+				#search{
+					/*width:450px;*/
+					width:80%;
+					height:45px;
+					font-size:24px;
+				}
+				#popDiv{
+					position:absolute;
+				}
+				#content_table{
+					font-size:21px;
+				}
+				#submit{
+					margin-top:0px;
+					width:80px;
+					height:45px;
+					font-size:17px;
+				}
+				.mouseOver{
+					background:#708090;
+					color:#FFFAFA;
+				}
+				
+				.mouseOut{
+					background:#FFFAFA;
+					color:#000000;
+				}
+			</style>
+			<div id="page1" style="display: none;">
+				<div id="content">
+					<input type="search" id="search" name="keyword" size="50" />
+					<input type="submit" id="submit" value="搜索" width="50px" onclick = "acaSubmitClick()" />
+					<div id="popDiv">
+						<table id="content_table" bgcolor="#FFFAFA" border="0" cellspacing="0" cellpadding="0">
+							<tbody id="content_table_body">
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+			
 	
 				<div class="academy_card" style="display: none;" >
 					<div class="pic-box" >
@@ -392,6 +449,135 @@
 		
 		<script>
 		
+		//搜索功能js////////////////////////////////////////////////////////////////////////////////////////////////
+			var searchDiv = $("#searchDiv");
+			searchDiv[0].addEventListener("click",function(){
+				searchDiv.css("display","none");
+				var page1 = $("#page1");
+				page1.css("display","block");
+			})
+			
+			$("#search").keyup(function(){
+				getMoreContents();	
+				clearAcademy_card();
+			});
+			
+			$("#search").focus(function(){	getMoreContents();	});
+			
+			//$("#search").blur(function(){	clearContent();	});
+			 
+			function getMoreContents(){
+				
+				var content = $("#search").val();
+				content = $.trim(content);
+				$("search").val(content);
+				console.log("content: "+content);
+				
+				if(content == ""){
+					clearContent();
+					return;
+				}
+				$.ajax({
+					        url:"${pageContext.request.contextPath}/academyRecommend/queryAcaLike",
+					        data:{"acaName":content},
+					        type:"post",
+					        dataType:"json",
+					        success:function(data)
+					        {
+					        	setContent((data));
+					        },
+					        error:function(data){
+								console.log(data);}
+					    });
+				
+			}
+			
+			//设置关联数据的展示,参数代表的是服务器传递过来的关联数据
+			function setContent (contents) {
+				clearContent();
+				setLocation();
+				var size = contents.length;
+				for(var i=0;i<size;i++){	
+					
+					//
+					//	contents是json对象，不是json数组，仍可用访问对象的属性来显示 
+					//
+					var nextNode = contents[i].aca_Name;//代表的是格式数据的第i个元素
+					var content=document.getElementById("search");
+					var width = content.offsetWidth;//输入框高度
+					var height = content.offsetHeight;
+					var tr = document.createElement("tr");
+					
+					var td = document.createElement("td");
+					td.setAttribute("border","0");
+					td.setAttribute("bgcolor","#FFFAFA");
+					td.setAttribute("width",width);
+					td.setAttribute("height",height);
+					td.setAttribute("nodeText",nextNode);
+					td.onmouseover=function(){
+					//鼠标停留时的样式
+						this.className='mouseOver';//this.className表示样式
+					};
+					td.onmouseout=function(){
+					//鼠标离开时的样式
+						this.className='mouseOut';
+					};
+					td.onclick = function(){
+						$("#search").val(this.getAttribute("nodeText"));
+						clearContent();
+					}
+					var text = document.createTextNode(nextNode);
+					console.log("nextNode:"+nextNode);
+					td.appendChild(text);
+					
+					tr.appendChild(td);
+					document.getElementById("content_table_body").appendChild(tr);
+				}
+			}
+			
+			function clearContent(){
+				var contentTableBody = document.getElementById("content_table_body");
+				var size = contentTableBody.childNodes.length;
+				for(var i=size-1;i>=0;i--){
+					contentTableBody.removeChild(contentTableBody.childNodes[i]);
+				}
+				document.getElementById("popDiv").style.border="none";
+			}
+			
+			//设置显示关联信息位置
+			function setLocation(){
+			//关联信息的显示位置要和输入框一致
+				var content=document.getElementById("search");
+				var width = content.offsetWidth;//输入框高度
+				console.log("width:"+width);
+				var left = content["offsetLeft"];//到左边的距离
+				var top = content["offsetTop"]+content.offsetHeight;//到顶部的距离
+			//显示数据的div
+				var popDiv = document.getElementById("popDiv");
+				popDiv.style.border="black 1px solid";
+				popDiv.style.left=left+"px";
+				popDiv.style.top=top+"px";
+				popDiv.style.width=width+"px";
+				
+			}
+			
+			//////////////////////////////////////////////////////////////////////////////////////////////////搜索功能js//
+			
+			
+			function acaSubmitClick(){
+				var acaContent = $("#search").val()
+				$.ajax({
+			        url:"${pageContext.request.contextPath}/academyRecommend/queryAcaName",
+			        data:{"acaName":acaContent},
+			        type:"post",
+			        dataType:"json",
+			        success:showAcademyCard,
+			        error:function(data){
+						console.log(data);}
+			    });
+			}
+	
+			
 			//addAcademy_card(473,"西安交通大学",true,true,34);
 		
 			function clearCityValue(){
@@ -428,6 +614,7 @@
 			
 			function showAcademyCard(data){
 				clearAcademy_card();
+				//if(data.length = 1)
 				$(data).each(function(){
 					addAcademy_card(this.aca_id,this.aca_name,this.aca_985,
 							this.aca_211,this.aca_ranking);
