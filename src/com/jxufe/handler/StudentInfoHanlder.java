@@ -1,7 +1,13 @@
 package com.jxufe.handler;
 
 import java.awt.image.BufferedImage;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.imageio.ImageIO;
@@ -23,6 +29,15 @@ import com.jxufe.status.LoginStatus;
 import com.jxufe.util.ImageUtil;
 import com.jxufe.util.MyMd5;
 import com.miaodiyun.httpAiDemo.IndustrySMS;
+import com.qq.connect.QQConnectException;
+import com.qq.connect.api.OpenID;
+import com.qq.connect.api.qzone.PageFans;
+import com.qq.connect.api.qzone.UserInfo;
+import com.qq.connect.javabeans.AccessToken;
+import com.qq.connect.javabeans.qzone.PageFansBean;
+import com.qq.connect.javabeans.qzone.UserInfoBean;
+import com.qq.connect.javabeans.weibo.Company;
+import com.qq.connect.oauth.Oauth;
 
 import net.sf.json.JSONObject;
 
@@ -32,6 +47,82 @@ public class StudentInfoHanlder {
 	
 	@Autowired
 	private StudentInfoService studentInfoService;
+	
+	@RequestMapping("/qqLogin")
+	public void qqLogin(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		// TODO Auto-generated method stub
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+		System.out.println("顶住");
+		try {
+			response.sendRedirect(new Oauth().getAuthorizeURL(request));
+		} catch (QQConnectException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("login");
+		 
+	}
+	
+	@RequestMapping("/afterQQLogin")
+	public String afterQQLogin(HttpServletRequest request, HttpServletResponse response) throws IOException {
+		
+		try {
+            AccessToken accessTokenObj = (new Oauth()).getAccessTokenByRequest(request);
+           
+            System.out.println("qq登录测试");
+            
+            String accessToken   = null,
+                   openID        = null;
+            long tokenExpireIn = 0L;
+
+            if (accessTokenObj.getAccessToken().equals("")) {
+			//	我们的网站被CSRF攻击了或者用户取消了授权
+			//  做一些数据统计工作
+                System.out.print("没有获取到响应参数");
+            } else {
+                accessToken = accessTokenObj.getAccessToken();
+                tokenExpireIn = accessTokenObj.getExpireIn();
+
+                // 利用获取到的accessToken 去获取当前用的openid -------- start
+                OpenID openIDObj =  new OpenID(accessToken);
+                openID = openIDObj.getUserOpenID();
+
+                UserInfo qzoneUserInfo = new UserInfo(accessToken, openID);
+                UserInfoBean userInfoBean = qzoneUserInfo.getUserInfo();
+                String nickname = userInfoBean.getNickname();
+                String gender = userInfoBean.getGender();
+                
+                String stu_mobile = openID;
+                
+                boolean mobileExit = true;
+        		List<StudentInfo> findStuByMobile = studentInfoService.findStuByMobile(stu_mobile);
+        		if(findStuByMobile == null || findStuByMobile.size()<=0) {
+        			mobileExit = false;
+        		}
+        		if(!mobileExit) {
+        			StudentInfo studentInfo = new StudentInfo();
+        			studentInfo.setStu_mobile(stu_mobile);
+        			studentInfo.setStu_name(nickname);
+        			studentInfo.setStu_sex(gender);
+        			try {
+	        			studentInfoService.save(studentInfo);
+	        			System.out.println("qq用户注册");
+					} catch (Exception e) {
+						System.out.println("qq用户注册失败!");
+					}
+        		}
+	            request.getSession().setAttribute("stu_id", openID);
+	            request.getSession().setAttribute("stu_name", nickname);
+        		System.out.println("qq用户登录");
+                String date = String.format("%-20s", new Date().toString());
+	            
+	            return "redirect:/homePage.jsp";
+            }
+        } catch (QQConnectException e) {
+        	e.printStackTrace();
+        }
+		return "redirect:/login.jsp";
+	}
 	
 	//修改用户
 	@RequestMapping(value="studentInfo/{id}", method=RequestMethod.PUT)
@@ -122,7 +213,7 @@ public class StudentInfoHanlder {
 		String passMD5 = MyMd5.MD5(stu_password);
 		studentInfo.setStu_password(passMD5);
 		studentInfoService.save(studentInfo);
-		return "redirect:/login.jsp";
+		return "/foreui/registerSuccess";
 	}
 	
 	@RequestMapping("/valicode")

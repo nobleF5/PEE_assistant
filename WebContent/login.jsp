@@ -81,7 +81,23 @@
 						<input type="submit" id="submitBt" class="btn btn-success" value="登录" onclick="login()"/>
 					</div>
 					<div id="formfooder">
-						<a href="${pageContext.request.contextPath }/AdminLogin.jsp" target="_blank"><span id="userlogin">管理员登录</span></a>
+						<style>
+							.login_png{
+								margin-right:4px;
+								width:24px;
+								height:24px;
+								float:left;
+							}
+						</style>
+						<div>
+							<a href="/PEE_assistant/studentInfoHanlder/qqLogin"><img class="login_png" src="${pageContext.request.contextPath }/img/qq.png"></img></a>
+						</div>
+						<div class="login_png">
+							<a href="#"><img class="login_png" src="${pageContext.request.contextPath }/img/wx.png"></img></a>
+						</div>
+						<div class="login_png">
+							<a href="#"><img class="login_png" src="${pageContext.request.contextPath }/img/wb.png"></img></a>
+						</div>
 						<a href="${pageContext.request.contextPath }/Register.jsp" target="_blank"><span id="unpayregister">免费注册</span></a>
 					</div>
 				</form>

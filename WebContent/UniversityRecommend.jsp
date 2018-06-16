@@ -261,6 +261,9 @@
 			<div id="funcBox">
 				<div id="cityChannel"><input id="cityValue" type="hidden" name="cityValue" value="" />
 					<div id="cityList"><span id="cityFollow">省市频道：</span><div style="display:inline" onclick="clearCityValue()"><span id="city_selected"></span></div>
+						<div style="float:right">
+							<a href="/PEE_assistant" style="margin-right:10px; color:gray;cursor:pointer;text-decoration:none">返回首页</a>
+						</div>
 						<ul>
 							<li>
 								<div  onclick="setCityValue(this)">
@@ -446,7 +449,12 @@
 			
 			</div>
 		</div>
-		
+		<style>
+			.message{
+				font-size:20px;
+				text-align:center;
+			}
+		</style>
 		<script>
 		
 		//搜索功能js////////////////////////////////////////////////////////////////////////////////////////////////
@@ -614,7 +622,15 @@
 			
 			function showAcademyCard(data){
 				clearAcademy_card();
-				//if(data.length = 1)
+				if(data.length == 0){
+					console.log("length:",data.length);
+					var aca_recommend = document.getElementById("aca_recommend");
+					var newDiv = document.createElement("div");
+					var newText = document.createTextNode("暂无数据");
+					newDiv.appendChild(newText);
+					newDiv.className = "message";
+					aca_recommend.appendChild(newDiv);
+				}
 				$(data).each(function(){
 					addAcademy_card(this.aca_id,this.aca_name,this.aca_985,
 							this.aca_211,this.aca_ranking);

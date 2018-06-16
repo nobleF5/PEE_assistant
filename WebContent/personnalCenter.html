@@ -345,6 +345,13 @@
 			});
 		}
 		
+		function clearAcademy_card(){
+			var tab_content = $("[isnew='yes']");
+			for (var i = 0; i < tab_content.length; i++) {
+				$(tab_content[i]).remove();
+			}
+		}
+		
 		//显示收藏信息
 		function addAcademy_card(aca_id,acaName,aca_985,aca_211,acaRank){
 				var academy_card = document.getElementsByClassName("academy_card")[0];
@@ -406,7 +413,11 @@
 							"stu_id":param,
 							"aca_id":aca_id
 						},
-						success:function(data){alert(data.message)},
+						success:function(data){
+							alert(data.message);
+							clearAcademy_card();
+							loadAcdemy(param);
+						},
 						error:function(data){alert(data.message)}
 					});
 				})
