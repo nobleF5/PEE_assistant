@@ -1,13 +1,7 @@
 package com.jxufe.handler;
 
 import java.awt.image.BufferedImage;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.imageio.ImageIO;
@@ -31,12 +25,9 @@ import com.jxufe.util.MyMd5;
 import com.miaodiyun.httpAiDemo.IndustrySMS;
 import com.qq.connect.QQConnectException;
 import com.qq.connect.api.OpenID;
-import com.qq.connect.api.qzone.PageFans;
 import com.qq.connect.api.qzone.UserInfo;
 import com.qq.connect.javabeans.AccessToken;
-import com.qq.connect.javabeans.qzone.PageFansBean;
 import com.qq.connect.javabeans.qzone.UserInfoBean;
-import com.qq.connect.javabeans.weibo.Company;
 import com.qq.connect.oauth.Oauth;
 
 import net.sf.json.JSONObject;
@@ -100,22 +91,22 @@ public class StudentInfoHanlder {
         			mobileExit = false;
         		}
         		if(!mobileExit) {
-        			StudentInfo studentInfo = new StudentInfo();
-        			studentInfo.setStu_mobile(stu_mobile);
-        			studentInfo.setStu_name(nickname);
-        			studentInfo.setStu_sex(gender);
         			try {
+        				StudentInfo studentInfo = new StudentInfo();
+        				studentInfo.setStu_name(nickname);
+        				studentInfo.setStu_sex(gender);
+        				studentInfo.setStu_mobile(stu_mobile);
 	        			studentInfoService.save(studentInfo);
-	        			System.out.println("qq用户注册");
+	        			findStuByMobile = studentInfoService.findStuByMobile(stu_mobile);
+	        			System.out.println("qq用户注册成功,id号为"+findStuByMobile.get(0).getStu_Id());
 					} catch (Exception e) {
 						System.out.println("qq用户注册失败!");
 					}
         		}
-	            request.getSession().setAttribute("stu_id", openID);
+	            request.getSession().setAttribute("stu_id", findStuByMobile.get(0).getStu_Id());
 	            request.getSession().setAttribute("stu_name", nickname);
         		System.out.println("qq用户登录");
-                String date = String.format("%-20s", new Date().toString());
-	            
+        		
 	            return "redirect:/homePage.jsp";
             }
         } catch (QQConnectException e) {

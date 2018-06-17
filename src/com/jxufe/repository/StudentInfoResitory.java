@@ -3,6 +3,7 @@ package com.jxufe.repository;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
 import com.jxufe.entity.StudentInfo;
@@ -19,4 +20,5 @@ public interface StudentInfoResitory extends JpaRepository<StudentInfo,Integer> 
 			+ "stu.stuId,stu.Stu_mobile,stu.Stu_name,stu.Stu_password,stu.Stu_sex,stu.Stu_academy,stu.Stu_academy_benke,stu.Stu_profession,stu.Stu_comments)"
 			+ " from StudentInfo stu where stu.stuId = ?1")
 	StudentInfo findStudentInfoByStuId( int studentInfo_id);
+	
 }
