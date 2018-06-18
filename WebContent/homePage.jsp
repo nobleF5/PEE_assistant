@@ -58,10 +58,10 @@
 							<a href="${pageContext.request.contextPath }/UniversityRecommend.jsp">院校推荐</a>
 						</li>
 						<li>
-							<a href="#">学习平台</a>
+							<a href="${pageContext.request.contextPath }/study.html">学习平台</a>
 						</li>
 						<li>
-							<a href="#">考研交流平台</a>
+							<a href="${pageContext.request.contextPath }/communicate.html">考研交流平台</a>
 						</li>
 						<li>
 							<a href="#">有偿辅导平台</a>

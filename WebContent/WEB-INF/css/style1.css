@@ -1,0 +1,88 @@
+*{margin:0;padding:0;}
+
+ul,li{list-style:none;}
+.clearfix{display:inline-table}
+
+.clearfix{display:block}
+
+
+#tab{
+	position:relative;
+	width:750px;
+	margin:30px auto 90px 10%;
+	display: flex;
+	float: left;
+	}
+#tab .tabList ul li{
+	float:left;
+
+	padding:5px 0;
+	width:100px;
+	text-align:center;
+	margin-left:-1px;
+	position:relative;
+	cursor:pointer;
+
+}
+#tab .tabCon{
+	position:absolute;
+	left:-1px;
+	top:32px;
+	border:1px solid #ccc;
+	border-top:none;
+	width:750px;
+}
+#tab .tabCon div{
+	padding:10px;
+	position:absolute;
+	opacity:0;
+	filter:alpha(opacity=0);
+}
+#tab .tabList li.tabCon1{
+	border-bottom:none;
+	background:#fff;
+}
+#tab .tabCon div.tabCon1{
+	opacity:1;
+	filter:alpha(opacity=100);
+}
+.span1{
+
+	margin-top: 10px;
+	display: block;
+}
+
+.tabCon11{
+	height:50px ;
+	display: block;
+	font-weight:bold;
+}
+.tabCon12{
+	height:50px ;
+	display: block;
+		font-weight:bold;
+}
+.tabCon13{
+	height:50px ;
+	display: block;
+	border-bottom: solid 1px #DBDBDB;
+}
+.span2{
+
+	display: block;
+}
+.tabCon14{
+	height:50px ;
+	display: block;
+	font-weight:bold;
+}
+.tabCon15{
+	height:50px ;
+	display: block;
+		font-weight:bold;
+}
+.tabCon16{
+	height:50px ;
+	display: block;
+	border-bottom: solid 1px #DBDBDB;
+}

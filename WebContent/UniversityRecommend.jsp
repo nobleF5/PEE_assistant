@@ -252,203 +252,239 @@
 			}
 		</style>
 		
+		<link href="css/font-awesome.css" />
+	    <link rel="stylesheet" href="css/ai-usercss-overall.css">
 		<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
 	</head>
 
 	<body>
 		
-		<div id="funcOut">
-			<div id="funcBox">
-				<div id="cityChannel"><input id="cityValue" type="hidden" name="cityValue" value="" />
-					<div id="cityList"><span id="cityFollow">省市频道：</span><div style="display:inline" onclick="clearCityValue()"><span id="city_selected"></span></div>
-						<div style="float:right">
-							<a href="/PEE_assistant" style="margin-right:10px; color:gray;cursor:pointer;text-decoration:none">返回首页</a>
+	<div class="ai-register-box" data-heigth="0">
+        <div class="ai-register-lizi" data-height="0"></div>
+        
+        <div class="ai-register-card-login" style="">
+            <div id="funcOut">
+				<div id="funcBox">
+					<div id="cityChannel"><input id="cityValue" type="hidden" name="cityValue" value="" />
+						<div id="cityList"><span id="cityFollow">省市频道：</span><div style="display:inline" onclick="clearCityValue()"><span id="city_selected"></span></div>
+							<div style="float:right">
+								<a href="/PEE_assistant" style="margin-right:10px; color:gray;cursor:pointer;text-decoration:none">返回首页</a>
+							</div>
+							<ul>
+								<li>
+									<div  onclick="setCityValue(this)">
+										<a class="city" >北京</a>
+									</div>
+								</li>
+								<li>
+									<div  onclick="setCityValue(this)">
+										<a class="city" >上海</a>
+									</div>
+								</li>
+								<li>
+									<div  onclick="setCityValue(this)">
+										<a class="city" >广东</a>
+									</div>
+								</li>
+								<li>
+									<div  onclick="setCityValue(this)">
+										<a class="city" >湖南</a>
+									</div>
+								</li>
+								<li>
+									<div  onclick="setCityValue(this)">
+										<a class="city" >江西</a>
+									</div>
+								</li>
+								<li>
+									<div  onclick="setCityValue(this)">
+										<a class="city" >河南</a>
+									</div>
+								</li>
+								<li>
+									<div  onclick="setCityValue(this)">
+										<a class="city" >河北</a>
+									</div>
+								</li>
+								<li>
+									<div  onclick="setCityValue(this)">
+										<a class="city" >湖北</a>
+									</div>
+								</li>
+								<li>
+									<div  onclick="setCityValue(this)">
+										<a class="city" >陕西</a>
+									</div>
+								</li>
+								<li>
+									<div  onclick="setCityValue(this)">
+										<a class="city" >山西</a>
+									</div>
+								</li>
+								<li>
+									<div  onclick="setCityValue(this)">
+										<a class="city" >云南</a>
+									</div>
+								</li>
+								<li>
+									<div  onclick="setCityValue(this)">
+										<a class="city" >安徽</a>
+									</div>
+								</li>
+								<li>
+									<div  onclick="setCityValue(this)">
+										<a class="city" >山东</a>
+									</div>
+								</li>
+								<li>
+									<div  onclick="setCityValue(this)">
+										<a class="city" >福建</a>
+									</div>
+								</li>
+								<li>
+									<div  onclick="setCityValue(this)">
+										<a class="city" >天津</a>
+									</div>
+								</li>
+							</ul>
 						</div>
-						<ul>
-							<li>
-								<div  onclick="setCityValue(this)">
-									<a class="city" >北京</a>
-								</div>
-							</li>
-							<li>
-								<div  onclick="setCityValue(this)">
-									<a class="city" >上海</a>
-								</div>
-							</li>
-							<li>
-								<div  onclick="setCityValue(this)">
-									<a class="city" >广东</a>
-								</div>
-							</li>
-							<li>
-								<div  onclick="setCityValue(this)">
-									<a class="city" >湖南</a>
-								</div>
-							</li>
-							<li>
-								<div  onclick="setCityValue(this)">
-									<a class="city" >江西</a>
-								</div>
-							</li>
-							<li>
-								<div  onclick="setCityValue(this)">
-									<a class="city" >河南</a>
-								</div>
-							</li>
-							<li>
-								<div  onclick="setCityValue(this)">
-									<a class="city" >河北</a>
-								</div>
-							</li>
-							<li>
-								<div  onclick="setCityValue(this)">
-									<a class="city" >湖北</a>
-								</div>
-							</li>
-							<li>
-								<div  onclick="setCityValue(this)">
-									<a class="city" >陕西</a>
-								</div>
-							</li>
-							<li>
-								<div  onclick="setCityValue(this)">
-									<a class="city" >山西</a>
-								</div>
-							</li>
-							<li>
-								<div  onclick="setCityValue(this)">
-									<a class="city" >云南</a>
-								</div>
-							</li>
-							<li>
-								<div  onclick="setCityValue(this)">
-									<a class="city" >安徽</a>
-								</div>
-							</li>
-							<li>
-								<div  onclick="setCityValue(this)">
-									<a class="city" >山东</a>
-								</div>
-							</li>
-							<li>
-								<div  onclick="setCityValue(this)">
-									<a class="city" >福建</a>
-								</div>
-							</li>
-							<li>
-								<div  onclick="setCityValue(this)">
-									<a class="city" >天津</a>
-								</div>
-							</li>
-						</ul>
+						<a id="cityMore" href="#" target="_blank" rel="nofollow">更多><b class="arrowD"></b></a>
 					</div>
-					<a id="cityMore" href="#" target="_blank" rel="nofollow">更多><b class="arrowD"></b></a>
 				</div>
-			</div>
-			<div id="funcSearch">
-				<div class="funcAssembly">
-					<select id="aca_property">
-						<option value="default" selected="">院校性质</option>
-						<option value="_985">985</option>
-						<option value="_211">211</option>
-						<option value="double_non">所有</option>
-					</select>
+				<div id="funcSearch">
+					<div class="funcAssembly">
+						<select id="aca_property">
+							<option value="default" selected="">院校性质</option>
+							<option value="_985">985</option>
+							<option value="_211">211</option>
+							<option value="double_non">所有</option>
+						</select>
+					</div>
+					<div class="funcAssembly">院校排名： <input class="rank_input acaRankStart" type="text" name="aca_startRanking" value="1" />- <input class="rank_input acaRankEnd" type="text" name="aca_endRanking" value="100" /></div>
+					<div class="funcAssembly">专业排名： <input class="rank_input proRankStart" type="text" name="startRanking" value="1" />- <input class="rank_input proRankEnd" type="text" name="endRanking" value="100" /></div>
+					<div class="funcAssembly">
+						<select id="pro_property">
+							<option value="pro_master">专硕</option>
+							<option value="aca_master">学硕</option>
+						</select>
+					</div>
+					<div id="recommend_div" onclick="recommendFun()">
+						<a id="recommend" href="#">一键推荐</a>
+					</div>
+					<div id="searchDiv">
+						<input type="search" id="smallSearch" class="rank_input" placeholder="搜索院校"/>
+						
+					</div>
 				</div>
-				<div class="funcAssembly">院校排名： <input class="rank_input acaRankStart" type="text" name="aca_startRanking" value="1" />- <input class="rank_input acaRankEnd" type="text" name="aca_endRanking" value="100" /></div>
-				<div class="funcAssembly">专业排名： <input class="rank_input proRankStart" type="text" name="startRanking" value="1" />- <input class="rank_input proRankEnd" type="text" name="endRanking" value="100" /></div>
-				<div class="funcAssembly">
-					<select id="pro_property">
-						<option value="pro_master">专硕</option>
-						<option value="aca_master">学硕</option>
-					</select>
-				</div>
-				<div id="recommend_div" onclick="recommendFun()">
-					<a id="recommend" href="#">一键推荐</a>
-				</div>
-				<div id="searchDiv">
-					<input type="search" id="smallSearch" class="rank_input" placeholder="搜索院校"/>
+		
+		
+		
+				<style>
+					#content{
+						margin:12px auto;
+						width:100%;
+						padding-left: 10px;
+					}
+					#search{
+						/*width:450px;*/
+						width:80%;
+						height:45px;
+						font-size:24px;
+					}
+					#popDiv{
+						position:absolute;
+					}
+					#content_table{
+						font-size:21px;
+					}
+					#submit{
+						margin-top:0px;
+						width:80px;
+						height:45px;
+						font-size:17px;
+					}
+					.mouseOver{
+						background:#708090;
+						color:#FFFAFA;
+					}
 					
+					.mouseOut{
+						background:#FFFAFA;
+						color:#000000;
+					}
+				</style>
+				<div id="page1" style="display: none;">
+					<div id="content">
+						<input type="search" id="search" name="keyword" size="50" />
+						<input type="submit" id="submit" value="搜索" width="50px" onclick = "acaSubmitClick()" />
+						<div id="popDiv">
+							<table id="content_table" bgcolor="#FFFAFA" border="0" cellspacing="0" cellpadding="0">
+								<tbody id="content_table_body">
+								</tbody>
+							</table>
+						</div>
+					</div>
 				</div>
-			</div>
-	
-	
-	
-			<style>
-				#content{
-					margin:12px auto;
-					width:100%;
-					padding-left: 10px;
-				}
-				#search{
-					/*width:450px;*/
-					width:80%;
-					height:45px;
-					font-size:24px;
-				}
-				#popDiv{
-					position:absolute;
-				}
-				#content_table{
-					font-size:21px;
-				}
-				#submit{
-					margin-top:0px;
-					width:80px;
-					height:45px;
-					font-size:17px;
-				}
-				.mouseOver{
-					background:#708090;
-					color:#FFFAFA;
-				}
 				
-				.mouseOut{
-					background:#FFFAFA;
-					color:#000000;
-				}
-			</style>
-			<div id="page1" style="display: none;">
-				<div id="content">
-					<input type="search" id="search" name="keyword" size="50" />
-					<input type="submit" id="submit" value="搜索" width="50px" onclick = "acaSubmitClick()" />
-					<div id="popDiv">
-						<table id="content_table" bgcolor="#FFFAFA" border="0" cellspacing="0" cellpadding="0">
-							<tbody id="content_table_body">
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
-			
-	
-				<div class="academy_card" style="display: none;" >
-					<div class="pic-box" >
-						<img class="aca-img" src="${pageContext.request.contextPath }/img/jxufe.jpg" />
-					</div>
-					<div class="ctx-box">
-						<div class="row-1 aca-title between-display">
-							<span class="academy-name"><strong>江西财经大学</strong></span>
-							<span>985/211</span>
+		
+					<div class="academy_card" style="display: none;" >
+						<div class="pic-box" >
+							<img class="aca-img" src="${pageContext.request.contextPath }/img/jxufe.jpg" />
 						</div>
-						<div class="row-2 aca-summary">
-							<p>是中华人民共和国教育部直属、中央直管副部级建制的综合性研究型全国重点大学，是国家“七五”、“八五”首批重点建设高校之一，“211工程”首批重点建设的七所大学之一，“985工程”首批重点建设的九所高校之一，世界一流大学建设高校。是中国九校联盟（C9）、中国大学校长联谊会、“111计划”成员，“珠峰计划”首批11所名校之一，教育部首批“卓越工程师教育培养计划”高校，</p>
-						</div>
-						<div class="row-3 aca-rank between-display" style="margin-top:0px">
-							<span class="ranking">排名:<span class="stress-rank">23</span></span>
-							<div id="collectAca">
-								<a id="star_link">
-									<img class="aca-star" src="${pageContext.request.contextPath }/img/star.ico"/>
-								</a>
+						<div class="ctx-box">
+							<div class="row-1 aca-title between-display">
+								<span class="academy-name"><strong>江西财经大学</strong></span>
+								<span>985/211</span>
+							</div>
+							<div class="row-2 aca-summary">
+								<p>是中华人民共和国教育部直属、中央直管副部级建制的综合性研究型全国重点大学，是国家“七五”、“八五”首批重点建设高校之一，“211工程”首批重点建设的七所大学之一，“985工程”首批重点建设的九所高校之一，世界一流大学建设高校。是中国九校联盟（C9）、中国大学校长联谊会、“111计划”成员，“珠峰计划”首批11所名校之一，教育部首批“卓越工程师教育培养计划”高校，</p>
+							</div>
+							<div class="row-3 aca-rank between-display" style="margin-top:0px">
+								<span class="ranking">排名:<span class="stress-rank">23</span></span>
+								<div id="collectAca">
+									<a id="star_link">
+										<img class="aca-star" src="${pageContext.request.contextPath }/img/star.ico"/>
+									</a>
+								</div>
 							</div>
 						</div>
 					</div>
+					
+				<div id="aca_recommend">
+					
+				
 				</div>
-				
-			<div id="aca_recommend">
-				
-			
 			</div>
-		</div>
+            
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            // 導航
+            $('.ai-logonavi-logo').on("mouseenter", function () {
+                $('.ai-logonavi-list').show();
+            }).on("mouseleave",function () {
+                $('.ai-logonavi-list').hide();
+            });
+            $('.ai-logonavi-list').on("mouseenter", function () {
+                $('.ai-logonavi-list').show();
+            }).on("mouseleave",function () {
+                $('.ai-logonavi-list').hide();
+            });
+        })
+    </script>
+
+    <script src="js/particleground.all.js"></script>
+    <script src="js/particle.js"></script>
+    <script>
+        $(function () {
+            $('.ai-register-lizi').css({"height":window.innerHeight});
+            new Particleground.particle('.ai-register-lizi');
+        });
+    </script>
+		
+		
 		<style>
 			.message{
 				font-size:20px;

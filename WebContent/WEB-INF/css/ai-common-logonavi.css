@@ -1,0 +1,278 @@
+
+html,body{
+    /*background-color: #EBEBEB;*/
+    font-size: 10px;
+    font-family:"宋体";
+}
+body,h1,h2,h3,h4,h5,h6,ul,dl,dd,p,img{
+    padding:0;
+    margin:0;
+}
+div {
+    word-wrap: break-word;
+    word-break: break-all;
+}
+a{
+    color:#47484A;
+	text-decoration: none;
+}
+a:hover{
+    color:#657E7C;
+}
+input{
+    border:0 none;
+    outline-style: none;
+}
+ul{
+    list-style:none;
+}
+article{
+    text-indent:2rem !important;
+    text-transform :capitalize !important;
+}
+.color1{
+    background-color: #445A54 !important;
+}
+.color2{
+    background-color: #8CB9AF !important;
+}
+.color3{
+    background-color: #657E7C !important;
+}
+.color4{
+    background-color: #99A7AA !important;
+}
+
+.clearfix:after{
+    content:"";
+    height:0;
+    line-height: 0;
+    display: block;
+    clear:both;
+    visibility: hidden;
+}
+.clearfix{
+    zoom:1;
+}
+
+.none{
+	display: none;
+}
+
+
+
+
+.ai-logonavi-box {
+    width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+}
+.ai-logonavi-navibar {
+	width: 100%;
+	height: auto;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	/*line-height: 5rem;*/
+	/*height: 5rem;*/
+}
+.ai-logonavi-left {
+	width: auto;
+	height: auto;
+	margin-left: 10%;
+}
+.ai-logonavi-logo {
+	font-family: "Symbol";
+	font-size: 2.6rem;
+	color: #ba1a2f;
+	width: 9rem;
+}
+.ai-logonavi-list{
+	width: 8rem;
+    position: absolute;
+	z-index: 1000;
+    /*background-color: rgb(251, 246, 255);*/
+}
+.ai-logonavi-list li{
+	padding: 0.2rem 0 0.2rem 1rem;
+}
+.ai-logonavi-list li a{
+	font-size: 1.6rem;
+    padding: 0.6rem 0;
+    color: #4c4c4c;
+    text-indent: 2rem;
+    font-family: "STXiHei";
+}
+.ai-logonavi-list li a:hover{
+	padding-left: 0rem;
+	color: #4a3b3e;
+	border-left:3px #D4C1C6 solid;
+	box-sizing: border-box;
+	border-bottom:none;
+}
+.ai-logonavi-right {
+	width: auto;
+	height: auto;
+	margin-right: 13%;
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.ai-logonavi-right a{
+	font-family: STXihei;
+	font-size: 1.6rem;
+}
+
+.ai-logonavi-search {
+	width: auto;
+	height: auto;
+	margin-right: 2rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+.ai-logonavi-seinput {
+	border-bottom: 0.1rem solid #c0bdbd;
+	font-size: 1.6rem;
+	/*height: 2.4rem;*/
+}
+.ai-logonavi-seinput::-webkit-input-placeholder {
+	color: #c0bdbd;
+}
+.ai-logonavi-seinput::-moz-placeholder {
+	color: #c0bdbd;
+}
+.ai-logonavi-sesmt {
+	width: auto;
+	height: 2.6rem;
+	font-size: 1.6rem;
+	color: #6d6a6f;
+	background-color: #ffffff;
+	margin-left: -3rem;
+}
+.ai-logonavi-loginok {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.ai-logonavi-msg {
+	margin-right: 2rem;
+	height: 2.3rem;
+	line-height: 2.3rem;
+}
+.ai-logonavi-avatar {
+	width: 2.3rem;
+	height: 2.3rem;
+	border-radius: 2rem;
+	margin-right: 2rem;
+}
+.ai-logonavi-login {
+	margin-right: 2rem;
+}
+.ai-logonavi-register {
+	/*margin-right: 2rem;*/
+}
+
+
+
+
+.ai-logopai-bigbox {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+.ai-logopai-navibar {
+    width: 81%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+    align-items: center;
+    flex-wrap: wrap;
+}
+.ai-logopai-left {
+	width: auto;
+	height: auto;
+	margin-left: 10%;
+}
+.ai-logopai-logo {
+	font-family: "Symbol";
+	font-size: 2.6rem;
+	color: #e22531;
+	width: 9rem;
+	/*font-weight: bold;*/
+}
+.ai-logopai-box {
+	width: auto;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.ai-logopl-linkdiv {
+	margin-left: 2rem;
+}
+.ai-logopl-alink {
+	font-size: 1.6rem;
+	margin-right: 2rem;
+	display: inline-block;
+	font-family: Heiti, "Microsoft Yahei";
+}
+.ai-logoplie-right {
+    margin-left: auto;
+}
+.ai-logoplie-right a{
+	font-family: STXihei;
+	font-size: 1.6rem;
+}
+
+
+.ai-home-foot {
+    height: 5rem;
+    width: 100%;
+    background-color: rgba(207, 204, 213, 0.14);
+    text-align: center;
+    line-height: 5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.ai-home-foot-right {
+    font-size: 1.5rem;
+    margin-right: 2rem;
+}
+.ai-home-foot-right span{
+    font-size: 1.6rem;
+}
+.ai-home-foot-about {
+    font-size: 1.5rem;
+	display: none;
+}
+
+
+@media screen and (max-width: 880px)  {
+    .ai-logoplie-right {
+        display: none;
+    }
+}
+
+
+
+

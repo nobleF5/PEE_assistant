@@ -1,0 +1,67 @@
+.listtyle1 {
+	margin-left: 20px;
+	background: #fff;
+	height: 305px;
+	width: 232px;
+	position: relative;
+	float: left;
+	margin-bottom: 20px;
+	_display: inline;
+}
+
+.listtyle1 div.img {
+	position: relative;
+	height: 232px;
+	width: 232px;
+}
+
+.listtyle1 div.img a.img {
+	display: block;
+	height: 232px;
+	width: 232px;
+}
+
+.listtyle1 div.img img.cpimg {
+	display: block;
+	height: 212px;
+	width: 232px;
+}
+
+
+
+.listtyle1 div.img .gx span {
+	display: inline-block;
+	vertical-align: top;
+	display: inline;
+	zoom: 1;
+	height: 32px;
+	padding: 0px 12px;
+	background: #60a531;
+	line-height: 32px;
+	color: #fff;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+	font-size: 14px;
+}
+
+
+.listtyle1 .gx {
+	display: inline-block;
+	vertical-align: top;
+	height: 38px;
+	position: absolute;
+	right: -6px;
+	top: 12px;
+	background: url(../images/gxarrow.png) right 32px no-repeat;
+}
+
+.listtyle1 .gx span {
+	display: inline-block;
+	vertical-align: top;
+	height: 32px;
+	padding: 0px 12px;
+	background: #60a531;
+	line-height: 32px;
+	color: #fff;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.5);
+	font-size: 14px;
+}

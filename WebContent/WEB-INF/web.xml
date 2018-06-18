@@ -48,7 +48,7 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
   
-  <!-- 配置支持ajax跨域 -->
+  <!-- 配置支持ajax跨域
   <filter>
   	<filter-name>contextFilter</filter-name>
   	<filter-class>com.jxufe.filter.WebContextFilter</filter-class>
@@ -57,6 +57,7 @@
   	<filter-name>contextFilter</filter-name>
   	<url-pattern>/*</url-pattern>
   </filter-mapping>
+   -->
   
   <!-- 配置 SpringMVC 的 DispatcherServlet -->
   <servlet>

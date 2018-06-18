@@ -1,0 +1,83 @@
+#out {
+	width: 500px;
+	/*height: 400px;*/
+	margin: 45px auto 0;
+	/*background: #f4f4f4;*/
+	border: 1px solid #ccc;
+	padding: 10px;
+	float: left;
+	margin-left: 40px;
+}
+
+#out div {
+	margin-top: 10px;
+}
+
+#text1 {
+	width: 400px;
+	/*height: 30px;*/
+	line-height: 30px;
+	font-size: 18px;
+	padding: 0 5px;
+	border: 1px solid #ccc;
+}
+
+#text2 {
+	width: 400px;
+	height: 80px;
+	font-size: 16px;
+	padding: 5px;
+	vertical-align: top;
+	overflow: auto;
+	border: 1px solid #ccc;
+}
+
+#zishu {
+	text-align: right;
+	color: #999;
+	font-size: 20px;
+}
+
+#text3 {
+	font-size: 16px;
+	margin-left: 336px;
+	padding: 5px 10px;
+}
+
+#out div h3 {
+	font-size: 24px;
+}
+
+#ullist {
+	margin-top: 10px;
+}
+
+#ullist li {
+	border-bottom: 1px solid #ccc;
+	/*background: #f9f9f9;*/
+	overflow: hidden;
+}
+
+#ullist li h6 {
+	font-size: 16px;
+	padding: 5px 10px;
+	background: #;
+}
+
+#ullist li h6 a {
+	float: right;
+	color: red;
+}
+
+#ullist li p {
+	font-size: 14px;
+	padding: 10px;
+	text-indent: 28px;
+	line-height: 150%;
+	margin-right: 5px;
+}
+
+#span1 {
+	font-size: 45px;
+	margin-left: 160px;
+}
