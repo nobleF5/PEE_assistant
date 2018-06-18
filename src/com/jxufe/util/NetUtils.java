@@ -80,14 +80,14 @@ public class NetUtils {
 		String body = doMyGetRequest.body();
 		
 		JSONArray jsonArray = JSONArray.fromObject(body);
-		System.out.println("jsonStr" + body);
+		System.out.println("jsonStr:" + body);
 		for (int i = 0; i < jsonArray.size(); i++) {
 			JSONObject JSONObj = (JSONObject) jsonArray.get(i);
 			try {
 				String distribute = (String) JSONObj.get("mc");
 				System.out.println("distribute:" + distribute);
 			} catch (JSONException e) {
-				System.out.println("mc的json数据解析错误!");
+				System.out.println("json数据解析错误!");
 				e.printStackTrace();
 			}
 		}
